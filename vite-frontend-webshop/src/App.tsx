@@ -4,19 +4,19 @@ import './stylesheets/styles.css'; // import CSS styles
 function List() {
 
     // Initialize 'counts' state with 0 for each item in the basket.js
-    const [counts, setCounts] = useState(new Array(checkoutlist.length).fill(1));
+    const [counts, setCounts] = useState<number[]>(new Array(checkoutlist.length).fill(1));
     // initialize a deleteButton state which is an empty array --.
-    const [deleteButton, setDeleteButton] = useState([]);
+    const [deleteButton, setDeleteButton] = useState<number[]>([]);
     // Adds count button +/- and function
 
-    function Counter({index }) {
+    function Counter({index }:{ index: number}) {
         const count = counts[index];
         const clickHandlerIncrement = () => {
-            setCounts((counts) =>
+            setCounts((counts: number[]) =>
                 counts.map((c, i) =>(i === index ? c + 1 : c)));
         };
         const clickHandlerDecrement = () => {
-            setCounts((counts) =>
+            setCounts((counts: number[]) =>
                 counts.map((c, i) => (i === index && c > 0 ? c - 1 : c))
             );
         };
