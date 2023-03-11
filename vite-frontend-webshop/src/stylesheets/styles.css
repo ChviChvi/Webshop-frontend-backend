@@ -52,9 +52,9 @@ tr:nth-child(even) {
 }
 
 button {
-    background-color: #A7727D;
+    background: white;
     border: none;
-    color: white;
+    color: red;
     padding: 8px 16px;
     text-align: center;
     text-decoration: none;
@@ -63,10 +63,13 @@ button {
     cursor: pointer;
     border-radius: 10%;
     margin: 4px 10px;
+    outline: #535bf2 2px solid;
 }
 
 button:hover {
-    opacity: 0.8;
+    outline: red 2px solid;
+    opacity: 0.6;
+    transition: 4.9s ease;
 }
 
 .total {
@@ -93,4 +96,16 @@ button:hover {
 }
 
 
+table{
+    position: absolute;
+    left: 25%;
+}
 
+.oldPrice {
+    text-decoration: line-through;
+    color: red;
+}
+.newPrice {
+    font-weight: bold;
+    color: green;
+}

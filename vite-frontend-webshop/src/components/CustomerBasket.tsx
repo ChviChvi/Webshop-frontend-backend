@@ -1,14 +1,21 @@
-import { useState } from "react";
-import { checkoutlist } from './Basket';
-import './stylesheets/styles.css'; // import CSS styles
-function List() {
+import React, {useState} from "react";
+import {checkoutlist} from "../Basket";
+import { Link } from 'react-router-dom';
+import '../stylesheets/styles.css'; // import CSS styles
+
+
+function CustomerBasket() {
 
     // Initialize 'counts' state with 0 for each item in the basket.js
     const [counts, setCounts] = useState<number[]>(new Array(checkoutlist.length).fill(1));
     // initialize a deleteButton state which is an empty array --.
     const [deleteButton, setDeleteButton] = useState<number[]>([]);
-    // Adds count button +/- and function
 
+
+    //initialize state that keeps track of the price reduction!
+    const [priceReduction, setPriceReduction] = useState<boolean>(false);
+
+    // Adds count button +/- and function
     function Counter({index }:{ index: number}) {
         const count = counts[index];
         const clickHandlerIncrement = () => {
@@ -25,12 +32,10 @@ function List() {
                 <button onClick={clickHandlerDecrement}>-</button>
                 <span>{count}</span>
                 <button  onClick={clickHandlerIncrement}>+</button>
-
-
-
             </div>
         );
     }
+
 
 
     // creates the table-body
@@ -41,7 +46,10 @@ function List() {
         const total = item.price * counts[index];
         // handling the clicks for removing the item. -> adds index to of the item in the array initialized earlier.
         const clickHandlerRemove = () => {
-            setDeleteButton((removed) => [...removed, index]);
+            const confirmed = window.confirm(`Are you sure you want to remove ${item.id} from your basket?`);
+            if (confirmed) {
+                setDeleteButton((removed) => [...removed, index]);
+            }
         };
         // 1 row with every id the item has. + deleteButton (item.d/pice/count/total)
         return (
@@ -74,29 +82,71 @@ function List() {
         const count = counts[i];
         totalSum += item.price * count;
     }
-    // Renders the headers, body, and bottom row.
-    return (
-        <table>
-            <thead>
-            <tr className="id-headers">
-                <td>ID</td>
-                <td>Price</td>
-                <td>Quantity</td>
-                <td>Total</td>
-                <td>Remove</td>
-            </tr>
-            </thead>
-            <tbody>
-            {listItems}
-            <tr className="rows-css">
 
-                <td colSpan={4}>Total price:</td>
-                <td>
-                    {totalSum} {checkoutlist[0].currency}
-                </td>
-            </tr>
-            </tbody>
-        </table>
+    // have to add !priceReduction here otherwise there is an infinite loop
+    if (totalSum > 1000&& !priceReduction){
+        setPriceReduction(true);
+    }
+
+    let content;
+    // Renders the headers, body, and bottom row.
+
+    if (checkoutlist.length === deleteButton.length) {
+        content = (
+            <div>
+                <p>Your basket is empty, good luck :)</p>
+            </div>
+        );
+    } else {
+
+        const oldPrice = priceReduction ? "oldPrice" : "";
+        const newPrice =  "newPrice";
+
+        content = (
+            <div>
+                <table>
+                    <thead>
+                    <tr className="id-headers">
+                        <td>ID</td>
+                        <td>Price</td>
+                        <td>Quantity</td>
+                        <td>Total</td>
+                        <td>Remove</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {listItems}
+                    <tr className={`rows-css ${oldPrice}`}>
+                        <td colSpan={4}>Total price:</td>
+                        <td>
+                            {totalSum} {checkoutlist[0].currency}
+                        </td>
+                    </tr>
+                    {priceReduction == true && (
+                        <tr className={`rows-css ${newPrice}`}>
+                            <td colSpan={4}>New price!</td>
+                            <td>
+                                {totalSum * 0.90} {checkoutlist[0].currency}
+                            </td>
+                        </tr>
+                    )}
+
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        );
+
+
+    }
+    return (
+        <div>
+            {content}
+            <button type="submit"><Link to="/checkoutform">Go to checkout</Link></button>
+        </div>
+
     );
 }
 /*
@@ -163,19 +213,5 @@ BELONGS IN  App() --------
 --------------------------
  */
 
-function App() {
-    return (
-        <>
-            <div>
-                <h1>Shopping Cart</h1>
 
-                <List/>
-            </div>
-
-
-        </>
-    );
-}
-
-export default App;
-
+export default CustomerBasket;
