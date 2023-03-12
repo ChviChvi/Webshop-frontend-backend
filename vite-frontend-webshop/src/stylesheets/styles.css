@@ -17,6 +17,7 @@ td{border-bottom-style: dashed;
     border-right-style: solid;
     text-align: center;
 
+
 }
 
 
@@ -28,7 +29,7 @@ table {
     background-color: #FFF;
     border-collapse: collapse;
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
     margin: auto;
     font-family: sans-serif;
     border: 1px solid #ddd;
@@ -44,6 +45,7 @@ th {
 td {
     padding: 8px;
     border-bottom: 2px solid #ddd;
+    white-space: nowrap;
 
 }
 
@@ -97,7 +99,10 @@ button:hover {
 
 table{
     position: absolute;
-    left: 25%;
+    left: 15%;
+    right: 15%;
+    margin-top: 40px;
+
 }
 
 .oldPrice {

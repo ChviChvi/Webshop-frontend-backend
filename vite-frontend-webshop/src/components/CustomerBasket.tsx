@@ -139,17 +139,17 @@ function CustomerBasket() {
         const newPrice =  "newPrice";
 
         content = (
-            <div>
-                <table style={{ marginTop: '50px', width: '100%' }}>
+            <div >
+                <table >
                     <thead>
                     <tr className="id-headers">
                         <td>Product</td>
                         <td>Price</td>
-                        <td style={{width: '20%'}}>Quantity</td>
-                        <td style={{width: '15%'}}>Total</td>
+                        <td>Quantity</td>
+                        <td>Total</td>
                         <td>Remove</td>
-                        <td style={{width: '22%'}}>Quantity for rebate</td>
-                        <td style={{width: '22%'}}>Recommended for you</td>
+                        <td>Quantity for rebate</td>
+                        <td>Recommended for you</td>
                     </tr>
                     </thead>
                     <tbody>
@@ -160,7 +160,7 @@ function CustomerBasket() {
                             {totalSum.toFixed(2)} {checkoutlist[0].currency}
                         </td>
                     </tr>
-                    {priceReduction == true && (
+                    {priceReduction && (
                         <>
                             <tr className={`rows-css ${newPrice}`}>
                                 <td colSpan={5}>New price!</td>
@@ -187,7 +187,7 @@ function CustomerBasket() {
 
     }
     return (
-        <div style={{ marginTop: '20px' }}>
+        <div >
             {content}
             <button type="submit"><Link to="/checkoutform">Go to checkout</Link></button>
         </div>
