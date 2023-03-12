@@ -38,6 +38,8 @@ function CustomerBasket() {
 
 
 
+
+
     // creates the table-body
     const listItems = checkoutlist.map((item, index) => {
         // we remove the row if the index of the row is in the removed array.
@@ -51,6 +53,10 @@ function CustomerBasket() {
                 setDeleteButton((removed) => [...removed, index]);
             }
         };
+
+
+
+
         // 1 row with every id the item has. + deleteButton (item.d/pice/count/total)
         return (
             <tr key={item.id}>
@@ -62,31 +68,61 @@ function CustomerBasket() {
                     <Counter index={index} />
                 </td>
                 <td>
-                    {total} {item.currency}
+                    { item.rebateQuantity > 0 && counts[index] >= item.rebateQuantity ? (
+                        <>
+                            <span
+                                className="regular-price">{total.toFixed(2)} {item.currency}
+                            </span>
+                            <br />
+                            <span className="discounted-price">
+                                {(total*(1-item.rebatePercent/100)).toFixed(2)} {item.currency}
+                            </span>
+                        </>
+                    ) : (
+                        <>
+                            <span> {total.toFixed(2)} {item.currency} </span>
+                        </>
+                    )}
                 </td>
 
                 <td>
                     <button onClick={clickHandlerRemove}>Remove</button>
                 </td>
-
-
+                <td>
+                    {item.rebatePercent > 0 && (
+                        <>
+                            Buy {item.rebateQuantity} to get {item.rebatePercent} % off.
+                        </>
+                    )}
+                </td>
+                <td>
+                    {item.upsellProductId ? item.upsellProductId : null}
+                </td>
             </tr>
         );
     });
 
-    // calculates the total price of all the items which are not in the sletknap array.
+    // calculates the total price of all the items which are not in the deleteButton array.
     let totalSum = 0;
     for (let i = 0; i < checkoutlist.length; i++) {
         if (deleteButton.includes(i)) continue;
         const item = checkoutlist[i];
         const count = counts[i];
-        totalSum += item.price * count;
+        if(count>=item.rebateQuantity){
+            totalSum += item.price * count*(1-item.rebatePercent/100)
+        }
+        else{
+        totalSum += item.price * count;}
     }
+
+
 
     // have to add !priceReduction here otherwise there is an infinite loop
     if (totalSum > 1000&& !priceReduction){
         setPriceReduction(true);
     }
+
+
 
     let content;
     // Renders the headers, body, and bottom row.
@@ -104,31 +140,40 @@ function CustomerBasket() {
 
         content = (
             <div>
-                <table>
+                <table style={{ marginTop: '50px', width: '100%' }}>
                     <thead>
                     <tr className="id-headers">
-                        <td>ID</td>
+                        <td>Product</td>
                         <td>Price</td>
-                        <td>Quantity</td>
-                        <td>Total</td>
+                        <td style={{width: '20%'}}>Quantity</td>
+                        <td style={{width: '15%'}}>Total</td>
                         <td>Remove</td>
+                        <td style={{width: '22%'}}>Quantity for rebate</td>
+                        <td style={{width: '22%'}}>Recommended for you</td>
                     </tr>
                     </thead>
                     <tbody>
                     {listItems}
                     <tr className={`rows-css ${oldPrice}`}>
-                        <td colSpan={4}>Total price:</td>
-                        <td>
-                            {totalSum} {checkoutlist[0].currency}
+                        <td colSpan={5}>Total price:</td>
+                        <td colSpan={2}>
+                            {totalSum.toFixed(2)} {checkoutlist[0].currency}
                         </td>
                     </tr>
                     {priceReduction == true && (
-                        <tr className={`rows-css ${newPrice}`}>
-                            <td colSpan={4}>New price!</td>
-                            <td>
-                                {totalSum * 0.90} {checkoutlist[0].currency}
-                            </td>
-                        </tr>
+                        <>
+                            <tr className={`rows-css ${newPrice}`}>
+                                <td colSpan={5}>New price!</td>
+                                <td colSpan={2}>
+                                    {(totalSum * 0.90).toFixed(2)} {checkoutlist[0].currency}
+                                </td>
+                            </tr>
+                            <tr className={`rows-css ${newPrice}`}>
+                                <td colSpan={5}>You saved:</td>
+                                <td colSpan={2}>{(totalSum-totalSum * 0.90).toFixed(2)} {checkoutlist[0].currency}</td>
+                            </tr>
+
+                        </>
                     )}
 
 
@@ -142,7 +187,7 @@ function CustomerBasket() {
 
     }
     return (
-        <div>
+        <div style={{ marginTop: '20px' }}>
             {content}
             <button type="submit"><Link to="/checkoutform">Go to checkout</Link></button>
         </div>
