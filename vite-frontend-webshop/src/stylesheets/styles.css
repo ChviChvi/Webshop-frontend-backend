@@ -97,6 +97,7 @@ button:hover {
 .toCheckout{
     float: right;
     font-weight: bolder;
+
 }
 
 
@@ -127,7 +128,9 @@ table{
 .discounted-price {
     color: green;
 }
-
+.toCheckout{
+    color: black;
+}
 /**Navigation bar currently only containing shopping-bag */
 .bag-button{
     position: relative;
@@ -144,7 +147,8 @@ table{
     border-color: black;
     margin:auto;
 }
-.fa-shopping-bag{
+.fa-shopping-bag,.fa-arrow-right{
+    text-decoration-color: black;
     color: black;
 }
 

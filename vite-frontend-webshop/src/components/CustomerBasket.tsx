@@ -196,8 +196,8 @@ function CustomerBasket() {
 
 
                 {content}
-                <button type="submit" className={'toCheckout'}><Link to="/checkoutform">Go to checkout
-                    <i className="fa-solid fa-arrow-right fa-icon"></i></Link></button>
+                <button className="toCheckout" type="submit"><Link to="/checkoutform">Go to checkout <i className="fa-solid fa-arrow-right fa-icon"></i>
+                </Link></button>
 
 
             </div>
