@@ -1,7 +1,9 @@
-input:invalid {
+input:required:invalid {
     border: 1px solid black;
 }
-
-input:valid {
+input:required:valid {
     border: 2px solid Green;
+}
+input:valid {
+    border: 1px solid black;
 }
