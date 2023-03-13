@@ -46,7 +46,7 @@ const CustomerCheckout: React.FC = () => {
         }
     };
 
-////    <button type="submit"><Link to="/">RETURN TO BASKET</Link></button>
+//TODO Add current number of shopping-cart-items to bag-icon instead of '5'
     return (
         <html>
 
@@ -67,7 +67,7 @@ const CustomerCheckout: React.FC = () => {
         <button className="bag-button"><Link to="/">
             <span className="fa-stack fa-1x" >
     <i className="fa fa-shopping-bag fa-stack-2x">    </i>
-    <strong className="fa-stack-1x bag-text">06</strong>
+    <strong className="fa-stack-1x bag-text">(5)</strong>
        </span></Link></button>
             </div>
 
