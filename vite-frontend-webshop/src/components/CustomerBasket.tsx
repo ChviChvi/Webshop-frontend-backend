@@ -62,9 +62,6 @@ function CustomerBasket() {
             </div>
         );
     }
-    setTimeout(function() { alert("Don´t miss out on our big winter sale this month 🎄🎅🏻 ❄️💯 " +
-        "with all purhcases over 300kr a 10% discount will be to your whole puchase" +
-        " Shop Big and save some of your precious money for the more fun stuff in life 💰"); }, 5000);
 
 
 
