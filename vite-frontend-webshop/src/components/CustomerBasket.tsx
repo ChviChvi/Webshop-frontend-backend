@@ -113,6 +113,7 @@ function CustomerBasket() {
         }
         else{
         totalSum += item.price * count;}
+        if (totalSum >300){totalSum=0.9*totalSum}
     }
 
 
