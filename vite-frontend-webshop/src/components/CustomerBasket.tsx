@@ -65,7 +65,7 @@ function CustomerBasket() {
 
 
 
-
+    let rebate=0;
 
     // creates the table-body
     const listItems = checkoutlist.map((item, index) => {
@@ -81,6 +81,11 @@ function CustomerBasket() {
             }
         };
 
+
+
+
+        if (item.rebateQuantity > 0 && counts[index] >= item.rebateQuantity)
+        {rebate+=total-(total*(1-item.rebatePercent/100))}
 
 
 
@@ -135,14 +140,10 @@ function CustomerBasket() {
         if (deleteButton.includes(i)) continue;
         const item = checkoutlist[i];
         const count = counts[i];
-        if(count>=item.rebateQuantity && item.rebateQuantity!==0){
-            totalSum += item.price * count*(1-item.rebatePercent/100)
-        }
-        else{
-        totalSum += item.price * count;
-        }
-        console.log(item.price) ;console.log(count)
-        console.log(totalSum)
+
+        totalSum += (item.price * count);
+
+
     }
 
 
@@ -150,7 +151,7 @@ function CustomerBasket() {
 
 
     // have to add !priceReduction here otherwise there is an infinite loop
-    if (totalSum >= 300&& !priceReduction){
+    if (totalSum > 300&& !priceReduction){
         setPriceReduction(true);
     }
     if (totalSum <= 300&& priceReduction){
@@ -172,7 +173,7 @@ function CustomerBasket() {
 
         let newSum=0;
         if (totalSum>300){
-             newSum=totalSum*0.9
+             newSum=(totalSum-rebate)*0.9;
         }
 
         const oldPrice = priceReduction ? "oldPrice" : "";
@@ -201,7 +202,7 @@ function CustomerBasket() {
                             {totalSum.toFixed(2)} {checkoutlist[0].currency}
                         </td>
                     </tr>
-                    {priceReduction && (
+                    {priceReduction  && (
                         <>
                             <tr className={`rows-css ${newPrice}`}>
                                 <td colSpan={5}>New price!</td>
@@ -211,11 +212,27 @@ function CustomerBasket() {
                             </tr>
                             <tr className={`rows-css ${newPrice}`}>
                                 <td colSpan={5}>You saved:</td>
-                                <td colSpan={2}>{(totalSum-totalSum * 0.90).toFixed(2)} {checkoutlist[0].currency}</td>
+                                <td colSpan={2}>{((totalSum-newSum).toFixed(2))} {checkoutlist[0].currency}</td>
                             </tr>
 
                         </>
                     )}
+                    {!priceReduction  && rebate>0 && (
+                        <>
+                            <tr className={`rows-css ${newPrice}`}>
+                                <td colSpan={5}>New price!</td>
+                                <td colSpan={2}>
+                                    {(totalSum-rebate).toFixed(2)} {checkoutlist[0].currency}
+                                </td>
+                            </tr>
+                            <tr className={`rows-css ${newPrice}`}>
+                                <td colSpan={5}>You saved:</td>
+                                <td colSpan={2}>{((rebate).toFixed(2))} {checkoutlist[0].currency}</td>
+                            </tr>
+
+                        </>
+                    )}
+
 
 
                     </tbody>
