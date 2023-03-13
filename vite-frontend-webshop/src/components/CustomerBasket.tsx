@@ -14,9 +14,11 @@ function CustomerBasket() {
         if (storedCounts !== null) {
             return JSON.parse(storedCounts);
         } else {
-            const defaultCounts = new Array(checkoutlist.length).fill(1);
-            localStorage.setItem('counts', JSON.stringify(defaultCounts))
-    }});
+            const initialCounts = new Array(checkoutlist.length).fill(1);
+            localStorage.setItem('counts', JSON.stringify(initialCounts));
+            return initialCounts;
+        }
+    });
     // initialize a deleteButton state which is an empty array --.
     const [deleteButton, setDeleteButton] = useState(() => {
         const storedDeleteButton = localStorage.getItem('deleteButton');
