@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {checkoutlist} from "../Basket";
 import { Link } from 'react-router-dom';
 import '../stylesheets/styles.css'; // import CSS styles
@@ -9,13 +9,38 @@ import '../stylesheets/styles.css'; // import CSS styles
 function CustomerBasket() {
 
     // Initialize 'counts' state with 0 for each item in the basket.js
-    const [counts, setCounts] = useState<number[]>(new Array(checkoutlist.length).fill(1));
+    const [counts, setCounts] = useState(() => {
+        const storedCounts = localStorage.getItem('counts');
+        return storedCounts !== null ? JSON.parse(storedCounts) :
+            useState<number[]>(new Array(checkoutlist.length).fill(1)) ;
+    });
     // initialize a deleteButton state which is an empty array --.
-    const [deleteButton, setDeleteButton] = useState<number[]>([]);
+    const [deleteButton, setDeleteButton] = useState(() => {
+        const storedDeleteButton = localStorage.getItem('deleteButton');
+        return storedDeleteButton !== null ? JSON.parse(storedDeleteButton) : [];
+    });
 
 
     //initialize state that keeps track of the price reduction!
     const [priceReduction, setPriceReduction] = useState<boolean>(false);
+
+    useEffect(() => {
+        const storedCounts = localStorage.getItem('counts');
+
+        if (storedCounts !== null) {
+            setCounts(JSON.parse(storedCounts));
+        }
+        const storedDeleteButton = localStorage.getItem("deleteButton");
+        if (storedDeleteButton) {
+            setDeleteButton(JSON.parse(storedDeleteButton));
+        }
+
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem('counts', JSON.stringify(counts));
+        localStorage.setItem("deleteButton", JSON.stringify(deleteButton));
+    }, [counts, deleteButton]);
 
     // Adds count button +/- and function
     function Counter({index }:{ index: number}) {
@@ -52,7 +77,7 @@ function CustomerBasket() {
         const clickHandlerRemove = () => {
             const confirmed = window.confirm(`Are you sure you want to remove ${item.id} from your basket?`);
             if (confirmed) {
-                setDeleteButton((removed) => [...removed, index]);
+                setDeleteButton((removed: any) => [...removed, index]);
             }
         };
 
@@ -110,19 +135,26 @@ function CustomerBasket() {
         if (deleteButton.includes(i)) continue;
         const item = checkoutlist[i];
         const count = counts[i];
-        if(count>=item.rebateQuantity){
+        if(count>=item.rebateQuantity && item.rebateQuantity!==0){
             totalSum += item.price * count*(1-item.rebatePercent/100)
         }
         else{
-        totalSum += item.price * count;}
-        if (totalSum >300){totalSum=0.9*totalSum}
+        totalSum += item.price * count;
+        }
+        console.log(item.price) ;console.log(count)
+        console.log(totalSum)
     }
 
 
 
+
+
     // have to add !priceReduction here otherwise there is an infinite loop
-    if (totalSum > 1000&& !priceReduction){
+    if (totalSum >= 300&& !priceReduction){
         setPriceReduction(true);
+    }
+    if (totalSum <= 300&& priceReduction){
+        setPriceReduction(false);
     }
 
 
@@ -138,8 +170,14 @@ function CustomerBasket() {
         );
     } else {
 
+        let newSum=0;
+        if (totalSum>300){
+             newSum=totalSum*0.9
+        }
+
         const oldPrice = priceReduction ? "oldPrice" : "";
         const newPrice =  "newPrice";
+
 
         content = (
             <div >
@@ -168,7 +206,7 @@ function CustomerBasket() {
                             <tr className={`rows-css ${newPrice}`}>
                                 <td colSpan={5}>New price!</td>
                                 <td colSpan={2}>
-                                    {(totalSum * 0.90).toFixed(2)} {checkoutlist[0].currency}
+                                    {newSum.toFixed(2)} {checkoutlist[0].currency}
                                 </td>
                             </tr>
                             <tr className={`rows-css ${newPrice}`}>
@@ -186,9 +224,9 @@ function CustomerBasket() {
             </div>
 
         );
-
-
     }
+
+
     return (
         <>
             <div>
