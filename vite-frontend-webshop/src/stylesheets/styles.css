@@ -144,11 +144,15 @@ table{
     border-color: black;
     margin:auto;
 }
+.fa-shopping-bag{
+    color: black;
+}
 
 .bag-text{
     margin-top: .6em;
     color: white;
-    font-size: 12px;
+    font-size: 10px;
+    font-weight: lighter;
 height: 10px;}
 
 
