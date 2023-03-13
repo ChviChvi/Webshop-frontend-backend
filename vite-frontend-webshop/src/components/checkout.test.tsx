@@ -4,7 +4,6 @@ import { render, fireEvent, screen } from '@testing-library/react';
 import CustomerCheckout from './CustomerCheckout';
 
 
-
 describe('CustomerCheckout', () => {
     // afterEach(() => {
     it('should update the form values when the user types in them', () => {
