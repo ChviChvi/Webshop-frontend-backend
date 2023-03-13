@@ -105,14 +105,17 @@ const CustomerCheckout: React.FC = () => {
             </div>
 
             <div>
-                <input type="tel" id="phone" value={phone} onChange={(e) => setPhone(e.target.value)}  placeholder={"Phone"} minLength={8} maxLength={8} required/>
+                <input type="tel" id="phone" value={phone} onChange={(e) => setPhone(e.target.value)}  placeholder={"Phone"} pattern="^[0-9]+$" minLength={8} maxLength={8} required/>
             </div>
-            <label htmlFor="n1"> If company order please fill out</label>
+            <div>
+            <label htmlFor="n1"> Notice! </label>
+            </div>
+            <label htmlFor="n2"> ↓ If company order please fill out ↓ </label>
             <div>
                 <input type="text" id="company" value={Company} onChange={(e) => setCompany(e.target.value)}  placeholder={"Company name"} pattern="^[\p{L}\s-]+$"/>
             </div>
             <div>
-                <input type="tel" id="VAT" value={VAT} onChange={(e) => setVAT(e.target.value)}  placeholder={"VAT.NO"} minLength={8} maxLength={8}/>
+                <input type="tel" id="VAT" value={VAT} onChange={(e) => setVAT(e.target.value)}  placeholder={"VAT.NO"} pattern="^[0-9]+$" minLength={8} maxLength={8}/>
             </div>
             <div>
                 <label htmlFor="subscribe">Subscribe to our newsletter?</label>
