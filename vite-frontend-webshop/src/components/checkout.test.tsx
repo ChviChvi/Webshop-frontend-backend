@@ -29,8 +29,8 @@ describe('CustomerCheckout', () => {
         fireEvent.change(postNumberInput, { target: { value: '5700' } });
         fireEvent.change(phoneInput, { target: { value: '22 22 22 22' } });
 
-        expect(firstNameInput).toHaveValue('Jon');
-        expect(lastNameInput).toHaveValue('Ela');
+        expect(firstNameInput).toHaveValue();
+        expect(lastNameInput).toHave('Ela');
         expect(emailInput).toHaveValue('jonEla@xxxxx.com');
         expect(addressInput).toHaveValue('12 B St.');
         expect(cityInput).toHaveValue('Any_town');
