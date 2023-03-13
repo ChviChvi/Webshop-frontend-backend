@@ -7,6 +7,7 @@ import { BrowserRouter as Router,Routes, Route }
 
 import CustomerBasket from "./CustomerBasket";
 import CheckoutForm from "./CustomerCheckout";
+import Payment from "./Payment";
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
             <Routes>
                 <Route path="/checkoutform" element={<CheckoutForm />}/>
                 <Route path="/" element={<CustomerBasket/>}/>
+                <Route path="/Payment" element={<Payment/>}/>
             </Routes>
         </Router>
     );

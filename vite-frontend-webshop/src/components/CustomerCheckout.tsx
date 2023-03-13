@@ -18,6 +18,8 @@ const CustomerCheckout: React.FC = () => {
     const [Country, setCountry] = useState('Denmark');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
+    const [Company, setCompany] = useState('');
+    const [VAT, setVAT] = useState('');
 
     const [subscribe, setSubscribe] = useState(false);
 
@@ -89,47 +91,36 @@ const CustomerCheckout: React.FC = () => {
                 <input type="text" id="Country" value={Country} onChange={(e) => setCountry(e.target.value)}  placeholder={"Country"} list="Lande" pattern="^[\p{L}\s-]+$" required/>
                 <datalist id="Lande">
                     <option>Denmark</option>
+                    <option>Sweden</option>
+                    <option>Norway</option>
                 </datalist>
             </div>
 
             <div>
-                <input
-                    type="text"
-                    id="postNumber"
-                    value={postNumber}
-                    onChange={(e) => setpostNumber(e.target.value)}
-                    placeholder={"PostNumber"}
-                    pattern="^[0-9]+$"
-                    minLength={4}
-                    maxLength={4}
-                    required
-                    onBlur={handlePostalCodeBlur}
-                />
+                <input type="text" id="postNumber" value={postNumber} onChange={(e) => setpostNumber(e.target.value)} placeholder={"PostNumber"} pattern="^[0-9]+$" minLength={4} maxLength={4} required onBlur={handlePostalCodeBlur}/>
             </div>
 
             <div>
-                <input
-                    type="text"
-                    id="City"
-                    value={City}
-                    onChange={(e) => setCity(e.target.value)}
-                    placeholder="City"
-                    pattern="^[\p{L}\s-]+$"
-                    required
-                />
+                <input type="text" id="City" value={City} onChange={(e) => setCity(e.target.value)} placeholder="City" pattern="^[\p{L}\s-]+$" required/>
             </div>
 
             <div>
                 <input type="tel" id="phone" value={phone} onChange={(e) => setPhone(e.target.value)}  placeholder={"Phone"} minLength={8} maxLength={8} required/>
+            </div>
+            <label htmlFor="n1"> If company order please fill out</label>
+            <div>
+                <input type="text" id="company" value={Company} onChange={(e) => setCompany(e.target.value)}  placeholder={"Company name"} pattern="^[\p{L}\s-]+$"/>
+            </div>
+            <div>
+                <input type="tel" id="VAT" value={VAT} onChange={(e) => setVAT(e.target.value)}  placeholder={"VAT.NO"} minLength={8} maxLength={8}/>
             </div>
             <div>
                 <label htmlFor="subscribe">Subscribe to our newsletter?</label>
                 <input type="checkbox" id="subscribe" checked={subscribe} onChange={handleSubscribeChange} />
             </div>
             <div>
-                <button>Submit</button>
+                <button><Link to="/Payment">Submit</Link></button>
             </div>
-
         </form>
             </div>
         </body>
