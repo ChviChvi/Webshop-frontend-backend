@@ -34,13 +34,35 @@ const CustomerCheckout: React.FC = () => {
                 <input type="text" id="Address" value={Address} onChange={(e) => setAddress(e.target.value)}  placeholder={"Address"} required/>
             </div>
             <div>
-                <input type="text" id="City" value={City} onChange={(e) => setCity(e.target.value)}  placeholder={"City"} pattern="^[\p{L}\s-]+$" required/>
-            </div>
-            <div>
-                <input type="text" id="Country" value={Country} onChange={(e) => setCountry(e.target.value)}  placeholder={"Country"} pattern="^[\p{L}\s-]+$" required/>
+                <input type="text" id="City" value={City} onChange={(e) => setCity(e.target.value)}  placeholder={"City"} list="Byer" pattern="^[\p{L}\s-]+$" required/>
+                <datalist id="Byer">
+                    <option>København</option>
+                    <option>Aarhus</option>
+                    <option>Odense</option>
+                    <option>Aalborg</option>
+                    <option>Esbjerg</option>
+                    <option>Randers</option>
+                    <option>Kolding</option>
+                    <option>Horsens</option>
+                    <option>Vejle</option>
+                    <option>Roskilde</option>
+                    <option>Farum</option>
+                    <option>Lyngby</option>
+                </datalist>
             </div>
             <div>
                 <input type="text" id="postNumber" value={postNumber} onChange={(e) => setpostNumber(e.target.value)}  placeholder={"PostNumber"} minLength={4} maxLength={4} required/>
+            </div>
+            <div>
+                <input type="text" id="Country" value={Country} onChange={(e) => setCountry(e.target.value)}  placeholder={"Country"} list="Lande" pattern="^[\p{L}\s-]+$" required/>
+                <datalist id="Lande">
+                    <option>Danmark</option>
+                    <option>Sverige</option>
+                    <option>Norge</option>
+                    <option>Tyskland</option>
+                    <option>Holland</option>
+                    <option>England</option>
+                </datalist>
             </div>
             <div>
                 <input type="tel" id="phone" value={phone} onChange={(e) => setPhone(e.target.value)}  placeholder={"Phone"} minLength={8} maxLength={8} required/>
