@@ -1,0 +1,60 @@
+/*.form {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    height: 100vh;*/
+/*}*/
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: content-box;
+    border-radius: 20px;
+
+}
+
+
+
+/*.firstname-box {*/
+/*    width: 50px;*/
+/*    font-size: 10px ;*/
+/*}*/
+
+
+
+.header {
+
+    padding: 60px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 30px;
+
+}
+
+.links {
+
+    background: blue;
+    color: white;
+
+}
+
+.information {
+    padding: 60px;
+    text-align: center;
+    background: red;
+    color: white;
+    width: 200vh;
+
+}
+
+
+
+
