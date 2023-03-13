@@ -8,16 +8,15 @@ import '../stylesheets/styles.css'; // import CSS styles
 
 function CustomerBasket() {
 
-
-
-
-
     // Initialize 'counts' state with 0 for each item in the basket.js
     const [counts, setCounts] = useState(() => {
         const storedCounts = localStorage.getItem('counts');
-        return storedCounts !== null ? JSON.parse(storedCounts) :
-            useState<number[]>(new Array(checkoutlist.length).fill(1)) ;
-    });
+        if (storedCounts !== null) {
+            return JSON.parse(storedCounts);
+        } else {
+            const defaultCounts = new Array(checkoutlist.length).fill(1);
+            localStorage.setItem('counts', JSON.stringify(defaultCounts))
+    }});
     // initialize a deleteButton state which is an empty array --.
     const [deleteButton, setDeleteButton] = useState(() => {
         const storedDeleteButton = localStorage.getItem('deleteButton');
