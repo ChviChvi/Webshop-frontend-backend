@@ -61,7 +61,6 @@ const CustomerCheckout: React.FC = () => {
         <button type="submit"><Link to="/">RETURN TO BASKET</Link></button>
 
         <form>
-
             <div>
                 <input type="text" id="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder={"Firstname"} pattern="^[\p{L}\s-]+$" required/>
                 <input type="text" id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder={"Lastname"} pattern="^[\p{L}\s-]+$" required/>
@@ -84,30 +83,11 @@ const CustomerCheckout: React.FC = () => {
             </div>
 
             <div>
-                <input
-                    type="text"
-                    id="postNumber"
-                    value={postNumber}
-                    onChange={(e) => setpostNumber(e.target.value)}
-                    placeholder={"PostNumber"}
-                    pattern="^[0-9]+$"
-                    minLength={4}
-                    maxLength={4}
-                    required
-                    onBlur={handlePostalCodeBlur}
-                />
+                <input type="text" id="postNumber" value={postNumber} onChange={(e) => setpostNumber(e.target.value)} placeholder={"PostNumber"} pattern="^[0-9]+$" minLength={4} maxLength={4} required onBlur={handlePostalCodeBlur}/>
             </div>
 
             <div>
-                <input
-                    type="text"
-                    id="City"
-                    value={City}
-                    onChange={(e) => setCity(e.target.value)}
-                    placeholder="City"
-                    pattern="^[\p{L}\s-]+$"
-                    required
-                />
+                <input type="text" id="City" value={City} onChange={(e) => setCity(e.target.value)} placeholder="City" pattern="^[\p{L}\s-]+$" required/>
             </div>
 
             <div>
@@ -118,9 +98,8 @@ const CustomerCheckout: React.FC = () => {
                 <input type="checkbox" id="subscribe" checked={subscribe} onChange={handleSubscribeChange} />
             </div>
             <div>
-                <button>Submit</button>
+                <button><Link to="/Payment">Submit</Link></button>
             </div>
-
         </form>
 
         </body>

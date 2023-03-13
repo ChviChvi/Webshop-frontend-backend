@@ -5,14 +5,24 @@
 /*    height: 100vh;*/
 /*}*/
 
-body {
+root, body {
     width: 100%;
-    margin: 0;
     padding: 0;
+    margin: 0;
 }
 
+.header {
+    padding: 60px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 30px;
+}
+
+
+
 input{
-    width: 100%;
+    /*width: 100%;*/
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: content-box;
@@ -29,57 +39,43 @@ input{
 
 
 
-.header {
-
-    padding: 60px;
-    text-align: center;
-    background: #1abc9c;
-    color: white;
-    font-size: 30px;
 
 
+/*.links {*/
 
-}
+/*    background: blue;*/
+/*    color: white;*/
 
-.links {
+/*}*/
 
-    background: blue;
-    color: white;
+/*.information {*/
+/*    padding: 60px;*/
+/*    text-align: center;*/
+/*    background: red;*/
+/*    color: white;*/
+/*    width: 200vh;*/
 
-}
-
-.information {
-    padding: 60px;
-    text-align: center;
-    background: red;
-    color: white;
-    width: 200vh;
-
-}
+/*}*/
 
 
-/* CSS property for header section */
-.header {
-    background-color: green;
-    padding: 15px;
-    text-align: center;
-}
+/*!* CSS property for header section *!*/
 
-/* CSS property for navigation menu */
-.nav_menu {
-    overflow: hidden;
-    background-color: #333;
-}
-.nav_menu a {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-.nav_menu a:hover {
-    background-color: white;
-    color: green;
-}
+
+/*!* CSS property for navigation menu *!*/
+/*.nav_menu {*/
+/*    overflow: hidden;*/
+/*    background-color: #333;*/
+/*}*/
+/*.nav_menu a {*/
+/*    float: left;*/
+/*    display: block;*/
+/*    color: white;*/
+/*    text-align: center;*/
+/*    padding: 14px 16px;*/
+/*    text-decoration: none;*/
+/*}*/
+/*.nav_menu a:hover {*/
+/*    background-color: white;*/
+/*    color: green;*/
+/*}*/
 
