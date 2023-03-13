@@ -176,7 +176,7 @@ function CustomerBasket() {
              newSum=(totalSum-rebate)*0.9;
         }
 
-        const oldPrice = priceReduction ? "oldPrice" : "";
+        const oldPrice = priceReduction || rebate>0 ? "oldPrice" : "";
         const newPrice =  "newPrice";
 
 
@@ -218,6 +218,7 @@ function CustomerBasket() {
                         </>
                     )}
                     {!priceReduction  && rebate>0 && (
+
                         <>
                             <tr className={`rows-css ${newPrice}`}>
                                 <td colSpan={5}>New price!</td>
