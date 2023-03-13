@@ -251,18 +251,23 @@ function CustomerBasket() {
 
 
     return (
-        <>
-            <div>
+        <html>
+            <div className="container">
+                {/*<div className = "header">*/}
+                {/*    <h2>*/}
+                {/*        WEBSHOP PG2*/}
+                {/*    </h2>*/}
+                {/*</div>*/}
 
 
-
+                <div className="table-containter">
                 {content}
                 <button type="submit" className={'toCheckout'}><Link to="/checkoutform">Go to checkout
                     <i className="fa-solid fa-arrow-right fa-icon"></i></Link></button>
-
+                </div>
 
             </div>
-        </>
+        </html>
 
     );
 }

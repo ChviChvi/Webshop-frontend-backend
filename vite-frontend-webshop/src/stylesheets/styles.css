@@ -54,7 +54,7 @@ tr:nth-child(even) {
 button {
     background: white;
     border: none;
-    color: red;
+    color: black;
     padding: 8px 16px;
     text-align: center;
     text-decoration: none;
@@ -63,7 +63,7 @@ button {
     cursor: pointer;
     border-radius: 10%;
     margin: 4px 10px;
-    outline: #535bf2 2px solid;
+    outline: #D4BF88 2px solid;
 }
 
 
@@ -103,9 +103,10 @@ button:hover {
 
 table{
 
+
     left: 15%;
     right: 15%;
-    margin-top: 40px;
+
     margin-left:auto;
     margin-right:auto;
 
@@ -159,5 +160,34 @@ table{
     font-weight: lighter;
 height: 10px;}
 
+/*
+
+h//e/
 
 
+*/
+body{
+    margin: 0px;
+    background: #E6DEB9;
+}
+
+.container {
+  position: page;
+}
+
+.header {
+
+
+    text-align: center;
+    background: #4B6B3C;
+    color: white;
+    font-size: 30px;
+    width: 100%;
+
+    height: 100px;
+}
+
+.table-container{
+    position: absolute;
+    margin-top: 100px;
+}
