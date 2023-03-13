@@ -137,10 +137,12 @@ table{
     margin: auto;}
 
 .nav{
+    padding-top:5px;
     height:40px;
-    width: 100%;
+    width: 95%;
     border-bottom-style: solid;
-    border-color: lightgray;
+    border-color: black;
+    margin:auto;
 }
 
 .bag-text{

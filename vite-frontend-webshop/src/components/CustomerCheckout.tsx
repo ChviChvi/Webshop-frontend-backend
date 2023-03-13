@@ -59,9 +59,8 @@ const CustomerCheckout: React.FC = () => {
                 WEBSHOP PG2
             </h2>
         </div>
-        <button type="submit"><Link to="/">RETURN TO BASKET</Link></button>
 
-        <>
+
             <div className="nav">
         <button className="bag-button"><Link to="/">
             <span className="fa-stack fa-1x" >
@@ -72,9 +71,6 @@ const CustomerCheckout: React.FC = () => {
 
             <div>
         <form>
-
-
-
             <div>
                 <input type="text" id="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder={"Firstname"} pattern="^[\p{L}\s-]+$" required/>
                 <input type="text" id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder={"Lastname"} pattern="^[\p{L}\s-]+$" required/>
@@ -135,13 +131,13 @@ const CustomerCheckout: React.FC = () => {
             </div>
 
         </form>
-
+            </div>
         </body>
 
 
         </html>
-            </div>
-        </>
+
+
     );
 };
 
