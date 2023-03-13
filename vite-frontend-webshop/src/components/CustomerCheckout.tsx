@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import '../stylesheets/Validation.css';
 import '../stylesheets/CustomerCheckout.css'
+import CustomerBasket from "./CustomerBasket";
+import {checkoutlist} from "../Basket";
+
 
 interface CityData {
     navn: string;
@@ -67,7 +70,7 @@ const CustomerCheckout: React.FC = () => {
                  <button className="bag-button"><Link to="/">
                     <span className="fa-stack fa-1x" >
                         <i className="fa fa-shopping-bag fa-stack-2x">    </i>
-                     <strong className="fa-stack-1x bag-text">(5)</strong>
+                     <strong className="fa-stack-1x bag-text">({checkoutlist.length})</strong>
                  </span></Link></button>
             </div>
 

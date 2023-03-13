@@ -133,23 +133,25 @@ table{
     color: black;
 }
 /**Navigation bar currently only containing shopping-bag */
-.bag-button{
-    position: relative;
-    outline:none;
-    float: right;
-    padding: 0;
-    margin: auto;}
 
 .nav{
     padding-top:5px;
     height:40px;
     width: 95%;
     border-bottom-style: solid;
-    border-color: black;
+    border-color: white;
     margin:auto;
 }
+.bag-button{
+    position: relative;
+    outline:none;
+    float: right;
+    padding: 0;
+    margin: auto;
+    background: #4B6B3C;}
+
+
 .fa-shopping-bag,.fa-arrow-right{
-    text-decoration-color: black;
     color: black;
 }
 
@@ -160,12 +162,12 @@ table{
     font-weight: lighter;
 height: 10px;}
 
-/*
-
-h//e/
 
 
-*/
+
+
+
+
 body{
     margin: 0px;
     background: #E6DEB9;
@@ -186,6 +188,7 @@ body{
 
     height: 100px;
 }
+
 
 .table-container{
     position: absolute;
