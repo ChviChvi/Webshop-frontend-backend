@@ -19,10 +19,21 @@ const CustomerCheckout: React.FC = () => {
     const handleSubscribeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSubscribe(event.target.checked);
     };
-
+////    <button type="submit"><Link to="/">RETURN TO BASKET</Link></button>
     return (
+        <>
+            <div className="nav">
+        <button className="bag-button"><Link to="/">
+            <span className="fa-stack fa-1x" >
+    <i className="fa fa-shopping-bag fa-stack-2x">    </i>
+    <strong className="fa-stack-1x bag-text">06</strong>
+       </span></Link></button>
+            </div>
+
+            <div>
         <form>
-            <button type="submit"><Link to="/">RETURN TO BASKET</Link></button>
+
+
             <div>
                 <input type="text" id="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder={"Firstname"} pattern="^[\p{L}\s-]+$" required/>
                 <input type="text" id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder={"Lastname"} pattern="^[\p{L}\s-]+$" required/>
@@ -76,6 +87,8 @@ const CustomerCheckout: React.FC = () => {
             </div>
 
         </form>
+            </div>
+        </>
     );
 };
 

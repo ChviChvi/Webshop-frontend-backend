@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { checkoutlist } from '../Basket';
 import '../stylesheets/styles.css'; // import CSS styles
+<script src="https://kit.fontawesome.com/yourcode.js" crossOrigin="anonymous"></script>
 import { BrowserRouter as Router,Routes, Route }
     from "react-router-dom";
 

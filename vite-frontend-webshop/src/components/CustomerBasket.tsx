@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import {checkoutlist} from "../Basket";
 import { Link } from 'react-router-dom';
 import '../stylesheets/styles.css'; // import CSS styles
+<script src="https://kit.fontawesome.com/b645b957d1.js" crossOrigin="anonymous"></script>
+
 
 
 function CustomerBasket() {
@@ -188,10 +190,18 @@ function CustomerBasket() {
 
     }
     return (
-        <div >
-            {content}
-            <button type="submit"><Link to="/checkoutform">Go to checkout</Link></button>
-        </div>
+        <>
+            <div>
+
+
+
+                {content}
+                <button type="submit" className={'toCheckout'}><Link to="/checkoutform">Go to checkout
+                    <i className="fa-solid fa-arrow-right fa-icon"></i></Link></button>
+
+
+            </div>
+        </>
 
     );
 }

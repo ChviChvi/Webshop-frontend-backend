@@ -8,7 +8,7 @@ h1 {
 
 
 div {
-    width: fit-content;
+    width: 100%;
     text-align: center;
 
 }
@@ -22,9 +22,7 @@ td{border-bottom-style: dashed;
 
 
 .sum{text-align: center}
-body{
 
-}
 table {
     background-color: #FFF;
     border-collapse: collapse;
@@ -60,13 +58,14 @@ button {
     padding: 8px 16px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+
     font-size: 16px;
     cursor: pointer;
     border-radius: 10%;
     margin: 4px 10px;
     outline: #535bf2 2px solid;
 }
+
 
 button:hover {
     outline: red 2px solid;
@@ -95,13 +94,19 @@ button:hover {
     overflow-y: auto;
     height: 200px;
 }
+.toCheckout{
+    float: right;
+    font-weight: bolder;
+}
 
 
 table{
-    position: absolute;
+
     left: 15%;
     right: 15%;
     margin-top: 40px;
+    margin-left:auto;
+    margin-right:auto;
 
 }
 
@@ -122,5 +127,27 @@ table{
 .discounted-price {
     color: green;
 }
+
+/**Navigation bar currently only containing shopping-bag */
+.bag-button{
+    position: relative;
+    outline:none;
+    float: right;
+    padding: 0;
+    margin: auto;}
+
+.nav{
+    height:40px;
+    width: 100%;
+    border-bottom-style: solid;
+    border-color: lightgray;
+}
+
+.bag-text{
+    margin-top: .6em;
+    color: white;
+    font-size: 12px;
+height: 10px;}
+
 
 
