@@ -8,6 +8,10 @@ import '../stylesheets/styles.css'; // import CSS styles
 
 function CustomerBasket() {
 
+
+
+
+
     // Initialize 'counts' state with 0 for each item in the basket.js
     const [counts, setCounts] = useState(() => {
         const storedCounts = localStorage.getItem('counts');
@@ -41,6 +45,7 @@ function CustomerBasket() {
         localStorage.setItem('counts', JSON.stringify(counts));
         localStorage.setItem("deleteButton", JSON.stringify(deleteButton));
     }, [counts, deleteButton]);
+
 
     // Adds count button +/- and function
     function Counter({index }:{ index: number}) {
