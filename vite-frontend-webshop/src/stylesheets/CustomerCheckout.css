@@ -5,22 +5,37 @@
 /*    height: 100vh;*/
 /*}*/
 
-root, body {
-    width: 100%;
-    padding: 0;
-    margin: 0;
+body{
+    margin: 0px;
+    background: #E6DEB9;
+}
+
+.container {
+    position: relative;
 }
 
 .header {
-    padding: 60px;
     text-align: center;
-    background: #1abc9c;
+    background: #4B6B3C;
     color: white;
     font-size: 30px;
+    width: 100%;
+    position: fixed ;
+    height: 100px;
 }
 
 
-
+.form {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
+    box-shadow: 0 0 10px rgb(0,0,0);
+    position: relative;
+    top: 100px; /* set the top position to the height of the header */
+    background-color: #3A4928;
+    border-radius: 20px;
+    color: #E6DEB9;
+}
 input{
     /*width: 100%;*/
     padding: 12px 20px;
@@ -28,6 +43,16 @@ input{
     box-sizing: content-box;
     border-radius: 20px;
 
+}
+
+
+
+.navigation {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    top: 100px; /* set the top position to the height of the header */
+    background-color: red;
 }
 
 
