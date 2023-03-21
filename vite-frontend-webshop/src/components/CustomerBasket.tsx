@@ -62,9 +62,9 @@ function CustomerBasket() {
         };
         return (
             <div>
-                <button onClick={clickHandlerDecrement}>-</button>
-                <span>{count}</span>
-                <button  onClick={clickHandlerIncrement}>+</button>
+                <button id="decrement" onClick={clickHandlerDecrement}>-</button>
+                <span id="count">{count}</span>
+                <button id="increment" onClick={clickHandlerIncrement}>+</button>
             </div>
         );
     }
