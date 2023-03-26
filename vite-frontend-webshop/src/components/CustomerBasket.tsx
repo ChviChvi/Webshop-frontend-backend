@@ -60,11 +60,12 @@ function CustomerBasket() {
                 counts.map((c, i) => (i === index && c > 0 ? c - 1 : c))
             );
         };
+
         return (
             <div>
                 <button id="decrement" onClick={clickHandlerDecrement}>-</button>
-                <span id="count">{count}</span>
-                <button id="increment" onClick={clickHandlerIncrement}>+</button>
+                <span data-testid="count">{count}</span>
+                    <button title= "hej" data-testid="increment" onClick={clickHandlerIncrement}>+</button>
             </div>
         );
     }
@@ -124,7 +125,7 @@ function CustomerBasket() {
                 </td>
 
                 <td>
-                    <button onClick={clickHandlerRemove}>Remove</button>
+                    <button id="remove" onClick={clickHandlerRemove}>Remove</button>
                 </td>
                 <td>
                     {item.rebatePercent > 0 && (
@@ -172,7 +173,7 @@ function CustomerBasket() {
     if (checkoutlist.length === deleteButton.length) {
         content = (
             <div>
-                <p>Your basket is empty, good luck :)</p>
+                <p>  Your basket is empty, good luck :)</p>
             </div>
         );
     } else {
