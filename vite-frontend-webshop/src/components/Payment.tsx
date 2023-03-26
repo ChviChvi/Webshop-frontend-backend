@@ -13,7 +13,7 @@ function PaymentType(){
 
         <form className="payment">
 
-        <p>Payment Method</p>
+        <h3>Payment Method</h3>
             <div className="paymentoption">
         <input className="methodtest" type="radio" id="mobilepay" name="fav_language" value="MobilePay"/>
           <label htmlFor="mobilepay">MobilePay</label>

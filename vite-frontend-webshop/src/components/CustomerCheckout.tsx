@@ -28,9 +28,13 @@ const CustomerCheckout: React.FC = () => {
     const [VAT, setVAT] = useState('');
 
     const [subscribe, setSubscribe] = useState(false);
+    const [conditions, setConditions] = useState(false);
 
     const handleSubscribeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSubscribe(event.target.checked);
+    };
+    const handleConditionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setConditions(event.target.checked);
     };
 
     const handlePostalCodeBlur = (event: React.FocusEvent<HTMLInputElement>) => {
@@ -126,6 +130,10 @@ const CustomerCheckout: React.FC = () => {
             <div>
                 <label htmlFor="subscribe">Subscribe to our newsletter?</label>
                 <input type="checkbox" id="subscribe" checked={subscribe} onChange={handleSubscribeChange} />
+            </div>
+            <div>
+                <label htmlFor="subscribe">I Accept The Terms & Conditions</label>
+                <input type="checkbox" id="conditions" checked={conditions} required onChange={handleConditionChange} />
             </div>
             <div>
                 <button><Link to="/Payment">Go to Payment Methods</Link></button>
