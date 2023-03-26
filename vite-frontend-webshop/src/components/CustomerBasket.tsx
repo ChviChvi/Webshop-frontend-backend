@@ -65,7 +65,7 @@ function CustomerBasket() {
             <div>
                 <button id="decrement" onClick={clickHandlerDecrement}>-</button>
                 <span data-testid="count">{count}</span>
-                    <button title= "hej" data-testid="increment" onClick={clickHandlerIncrement}>+</button>
+                    <button  data-testid="increment" onClick={clickHandlerIncrement}>+</button>
             </div>
         );
     }
@@ -82,7 +82,7 @@ function CustomerBasket() {
         const total = item.price * counts[index];
         // handling the clicks for removing the item. -> adds index to of the item in the array initialized earlier.
         const clickHandlerRemove = () => {
-            const confirmed = window.confirm(`Are you sure you want to remove ${item.id} from your basket?`);
+            const confirmed = window.confirm( `Are you sure you want to remove ${item.id} from your basket?`);
             if (confirmed) {
                 setDeleteButton((removed: any) => [...removed, index]);
             }
@@ -125,7 +125,7 @@ function CustomerBasket() {
                 </td>
 
                 <td>
-                    <button id="remove" onClick={clickHandlerRemove}>Remove</button>
+                    <button data-testid="remove" onClick={clickHandlerRemove}>Remove</button>
                 </td>
                 <td>
                     {item.rebatePercent > 0 && (
@@ -173,7 +173,7 @@ function CustomerBasket() {
     if (checkoutlist.length === deleteButton.length) {
         content = (
             <div>
-                <p>  Your basket is empty, good luck :)</p>
+                <p data-testid="goodluck">  Your basket is empty, good luck :)</p>
             </div>
         );
     } else {

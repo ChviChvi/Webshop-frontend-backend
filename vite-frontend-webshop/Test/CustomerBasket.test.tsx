@@ -2,8 +2,7 @@ import {fireEvent, render, screen} from "@testing-library/react";
 import {describe, expect, it, vi} from "vitest";
 import userEvent from "@testing-library/user-event";
 import CustomerBasket from "../src/components/App";
-import deletebutton from "../src/components/App"
-import counts from '../src/components/CustomerBasket'
+
 
 
 
@@ -33,7 +32,7 @@ describe(CustomerBasket.name, () => {
         expect(count[0]).toHaveTextContent("1")
         //finds all increment buttons
         const incrementButton =screen.getAllByTestId("increment");
-        //presses the first button found
+        //clicks the first button found
         await userEvent.click(incrementButton[0]);
         //finds all count elements
         const count1 = screen.getAllByTestId("count");
@@ -43,43 +42,22 @@ describe(CustomerBasket.name, () => {
 
 
     });
-/*
-    it("should remove item", () => {
+
+    it("should remove item", async() => {
+
+        vi.spyOn(window, 'confirm').mockImplementation(() => true);
         // Render the component that contains the button
         render(<CustomerBasket/>);
-
-        // Select the button by its text content
-        expect(screen.getByText('vitamin-d-90-100'))
-        expect(screen.getByText('vitamin-c-500-250'))
-        //expect(screen.getByText('vitamin-c-depot-500-250'))
-        expect(screen.getByText('fish-oil-1000-120'))
-        expect(screen.getByText('coffee-grinder'))
-        expect(screen.findByText('Remove'))
-
-
-        // Simulate a click event on the button
-        userEvent.click(document.getElementById('remove1'));
-        expect(screen.getByText("Are you sure"));
-        userEvent.click(screen.queryByText('OK'));
-
-        const confirmSpy = vi.spyOn(window, 'confirm')
-
-        // Provide a mock implementation for window.confirm() that returns true
-        confirmSpy.mockImplementation(() => true)
-
-
-
-        //expect( screen.getByText("OK"));
-        expect( screen.getByText("Anuller"));
-        expect(screen.getByText('vitamin-d-90-100'))
-        expect(screen.getByText('vitamin-c-500-250'))
-        expect(screen.getByText('vitamin-c-depot-500-250'))
-        expect(screen.getByText('fish-oil-1000-120'))
-        expect(screen.getByText('coffee-grinder'))
+        //expects the product to be in the document
+        expect(screen.queryByText('vitamin-d-90-100')).toBeInTheDocument();
+        //get the remove button
+        const removeButtons =screen.getAllByTestId("remove");
+        //click the remove button
+        await userEvent.click(removeButtons[0])
+        //expect the window.confirm to be called
+        expect(window.confirm).toHaveBeenCalledTimes(1);
+        //expect the product to be removed
+        expect(screen.queryByText('vitamin-d-90-100')).not.toBeInTheDocument();
     });
-
- */
-
-
 });
 
