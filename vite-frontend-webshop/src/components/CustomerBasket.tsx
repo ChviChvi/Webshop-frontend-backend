@@ -1,24 +1,47 @@
 import React, {useEffect, useState} from "react";
-import {checkoutlist} from "../Basket";
+//import {checkoutlist} from "../Basket";
 import { Link } from 'react-router-dom';
-import '../stylesheets/styles.css'; // import CSS styles
-<script src="https://kit.fontawesome.com/b645b957d1.js" crossOrigin="anonymous"></script>
+import '../stylesheets/reset.css';
+//import '../stylesheets/styles.css';
+//<script src="https://kit.fontawesome.com/b645b957d1.js" crossOrigin="anonymous"></script>
 
 
 
 function CustomerBasket() {
 
-    // Initialize 'counts' state with 0 for each item in the basket.js
-    const [counts, setCounts] = useState(() => {
-        const storedCounts = localStorage.getItem('counts');
-        if (storedCounts !== null) {
-            return JSON.parse(storedCounts);
-        } else {
-            const initialCounts = new Array(checkoutlist.length).fill(1);
-            localStorage.setItem('counts', JSON.stringify(initialCounts));
-            return initialCounts;
-        }
-    });
+
+    interface Product {
+        id: string;
+        name: string;
+        price: number;
+        currency: string;
+        rebateQuantity: number;
+        rebatePercent: number;
+        upsellProductId: string | null;
+        imageUrl: string;
+    }
+
+    // fetch the data from the API
+    const [checkoutlist, setCheckoutlist] = useState<Product[]>([]);
+    const [counts, setCounts] = useState<number[]>([]);
+
+    useEffect(() => {
+        fetch('https://raw.githubusercontent.com/larsthorup/checkout-data/main/product-v2.json')
+            .then(response => response.json())
+            .then(data => {
+                setCheckoutlist(data);
+                console.log(data);
+                const initialCounts = new Array(data.length).fill(1);
+                localStorage.setItem('counts', JSON.stringify(initialCounts));
+                setCounts(initialCounts);
+            })
+            .catch(error => console.error(error));
+    }, []);
+
+    // update counts in localStorage whenever counts change
+    useEffect(() => {
+        localStorage.setItem('counts', JSON.stringify(counts));
+    }, [counts]);
     // initialize a deleteButton state which is an empty array --.
     const [deleteButton, setDeleteButton] = useState(() => {
         const storedDeleteButton = localStorage.getItem('deleteButton');
@@ -206,7 +229,7 @@ function CustomerBasket() {
                     <tr className={`rows-css ${oldPrice}`}>
                         <td colSpan={5}>Total price:</td>
                         <td colSpan={2}>
-                            {totalSum.toFixed(2)} {checkoutlist[0].currency}
+                            {totalSum.toFixed(2)} DKK
                         </td>
                     </tr>
                     {priceReduction  && (
@@ -253,13 +276,8 @@ function CustomerBasket() {
 
 
     return (
-        <html>
+
             <div className="container">
-                {/*<div className = "header">*/}
-                {/*    <h2>*/}
-                {/*        WEBSHOP PG2*/}
-                {/*    </h2>*/}
-                {/*</div>*/}
 
 
                 <div className="table-containter">
@@ -269,7 +287,6 @@ function CustomerBasket() {
                 </div>
 
             </div>
-        </html>
 
     );
 }
