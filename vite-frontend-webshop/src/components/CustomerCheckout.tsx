@@ -6,10 +6,13 @@ import CustomerBasket from "./CustomerBasket";
 import {checkoutlist} from "../Basket";
 
 
+
 interface CityData {
     navn: string;
     postnr: string;
 }
+
+
 
 const CustomerCheckout: React.FC = () => {
     const [firstName, setFirstName] = useState('');
@@ -70,7 +73,7 @@ const CustomerCheckout: React.FC = () => {
                  <button className="bag-button"><Link to="/">
                     <span className="fa-stack fa-1x" >
                         <i className="fa fa-shopping-bag fa-stack-2x">    </i>
-                     <strong className="fa-stack-1x bag-text">({checkoutlist.length})</strong>
+                     <strong className="fa-stack-1x bag-text">(5)</strong>
                  </span></Link></button>
             </div>
 
@@ -125,7 +128,7 @@ const CustomerCheckout: React.FC = () => {
                 <input type="checkbox" id="subscribe" checked={subscribe} onChange={handleSubscribeChange} />
             </div>
             <div>
-                <button><Link to="/Payment">Submit</Link></button>
+                <button><Link to="/Payment">Go to Payment Methods</Link></button>
             </div>
         </form>
             </div>

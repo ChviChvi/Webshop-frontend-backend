@@ -194,3 +194,32 @@ body{
     position: absolute;
     margin-top: 100px;
 }
+
+.payment{
+    margin: auto;
+    width: 10%;
+    border-radius: 0%;
+    border-style: solid;
+}
+.methodtest {
+    border-style: solid;
+}
+.icon {
+    margin: 0 0;
+    width: 116px;
+    height: 48px;
+}
+.cardicon{
+    width: 58px;
+    height: 48px;
+}
+.paymentoption{
+    margin: auto;
+    width: 90%;
+    height: fit-content;
+    text-align: center;
+    border-style: solid;
+    margin-bottom:2px;
+
+
+}
