@@ -26,6 +26,7 @@ const CustomerCheckout: React.FC = () => {
     const [phone, setPhone] = useState('');
     const [Company, setCompany] = useState('');
     const [VAT, setVAT] = useState('');
+    const [Comment, setComment] = useState('');
 
     const [subscribe, setSubscribe] = useState(false);
     const [conditions, setConditions] = useState(false);
@@ -128,6 +129,7 @@ const CustomerCheckout: React.FC = () => {
             <div>
                 <input type="tel" id="VAT" value={VAT} onChange={(e) => setVAT(e.target.value)}  placeholder={"VAT.NO"} pattern="^[0-9]+$" minLength={8} maxLength={8}/>
             </div>
+            <textarea name="optionalcomment" rows={4} cols={30} value={Comment} onChange={(e) => setComment(e.target.value)} placeholder="Leave a comment"></textarea>
             <div>
                 <label htmlFor="subscribe">Subscribe to our newsletter?</label>
                 <input type="checkbox" id="subscribe" checked={subscribe} onChange={handleSubscribeChange} />

@@ -49,8 +49,8 @@ const Payment: React.FC = () => {
 </div>
 
 <div>
-    <Link to="/">  <button>Continue to Payment
-         </button>   </Link></div>
+    <button>Continue to Payment
+         </button>   </div>
 
 
 
