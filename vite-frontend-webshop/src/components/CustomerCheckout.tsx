@@ -34,7 +34,7 @@ const CustomerCheckout: React.FC = () => {
         setSubscribe(event.target.checked);
     };
     const handleConditionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setConditions(event.target.checked);
+            setConditions(event.target.checked);
     };
 
     const handlePostalCodeBlur = (event: React.FocusEvent<HTMLInputElement>) => {
@@ -55,6 +55,7 @@ const CustomerCheckout: React.FC = () => {
                 .catch((error) => console.error(error));
         }
     };
+
 
 //TODO Add current number of shopping-cart-items to bag-icon instead of '5'
     return (
@@ -82,7 +83,7 @@ const CustomerCheckout: React.FC = () => {
             </div>
 
             <div>
-        <form className="form">
+        <form className="form" action="/Payment">
             <div>
                 <input type="text" id="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder={"Firstname"} pattern="^[\p{L}\s-]+$" required/>
                 <input type="text" id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder={"Lastname"} pattern="^[\p{L}\s-]+$" required/>
@@ -136,7 +137,8 @@ const CustomerCheckout: React.FC = () => {
                 <input type="checkbox" id="conditions" checked={conditions} required onChange={handleConditionChange} />
             </div>
             <div>
-                <button><Link to="/Payment">Go to Payment Methods</Link></button>
+                <button>Go to Payment Methods</button>
+
             </div>
         </form>
             </div>
@@ -145,6 +147,8 @@ const CustomerCheckout: React.FC = () => {
 
 
         </html>
+
+
 
 
     );
