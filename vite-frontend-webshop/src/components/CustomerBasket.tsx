@@ -190,8 +190,6 @@ function CustomerBasket() {
 
 
 
-
-
     let content;
     // Renders the headers, body, and bottom row.
 
@@ -284,6 +282,24 @@ function CustomerBasket() {
     }
 
 
+    const handleSaveData = () => {
+        const data = {
+            checkoutlist,
+            counts,
+            deleteButton,
+            priceReduction
+        };
+        fetch('http://130.225.170.71:3000/api/save-data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.text())
+            .then(data => console.log(data))
+            .catch(error => console.error(error));
+    };
 
     return (
 

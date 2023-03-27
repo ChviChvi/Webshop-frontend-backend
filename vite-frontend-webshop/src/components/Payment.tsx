@@ -6,6 +6,7 @@ import VisaIcon from '../assets/visa.svg';
 import MasterIcon from '../assets/mastercard.svg';
 import GiftIcon from '../assets/giftIcon.png';
 import {Link, useLocation} from 'react-router-dom';
+import CustomerCheckout from "./CustomerCheckout";
 
 
 
@@ -122,7 +123,10 @@ const Payment: React.FC = () => {
 <div>
     <Link to="/">  <button>Return to Basket
     </button>   </Link>
+
+
 </div>
+
 
 <div>
     <button>Continue to Payment

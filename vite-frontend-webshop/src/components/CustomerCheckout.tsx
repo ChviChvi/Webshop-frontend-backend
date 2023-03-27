@@ -77,6 +77,7 @@ const CustomerCheckout: React.FC = () => {
     const navigate = useNavigate();
 
   function handleFormSubmit() {
+
       localStorage.setItem('firstName', firstName);
       localStorage.setItem('lastName', lastName);
       localStorage.setItem('Address', Address);
@@ -92,6 +93,40 @@ const CustomerCheckout: React.FC = () => {
 
       return;
       }
+
+
+    function fetchhandleFormSubmit() {
+
+      handleFormSubmit();
+
+        const formData = {
+            firstName: localStorage.getItem('firstName'),
+            lastName: localStorage.getItem('lastName'),
+            Address: localStorage.getItem('Address'),
+            Address2: localStorage.getItem('Address2'),
+            postNumber: localStorage.getItem('postNumber'),
+            City: localStorage.getItem('City'),
+            Country: localStorage.getItem('Country'),
+            email: localStorage.getItem('email'),
+            phone: localStorage.getItem('phone'),
+            Company: localStorage.getItem('Company'),
+            VAT: localStorage.getItem('VAT'),
+            Comment: localStorage.getItem('Comment'),
+        };
+
+        fetch('http://130.225.170.71:3000/submit-form', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data); // Display success message
+            })
+            .catch(error => {
+                console.error(error); // Handle error
+            });
+    }
  /*
 
 
@@ -137,7 +172,7 @@ const CustomerCheckout: React.FC = () => {
 
 
             <div>
-        <form className="form" action="/Payment" onSubmit={handleFormSubmit}>
+        <div className="form"  onSubmit={fetchhandleFormSubmit} >
             <div>
                 <input type="text" id="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder={"Firstname"} pattern="^[\p{L}\s-]+$" required/>
                 <input type="text" id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder={"Lastname"} pattern="^[\p{L}\s-]+$" required/>
@@ -192,10 +227,11 @@ const CustomerCheckout: React.FC = () => {
                 <input type="checkbox" id="conditions" checked={conditions} required onChange={handleConditionChange} />
             </div>
             <div>
-                <button type="submit">Go to Payment Methods</button>
+
+                <button type="submit" onClick={fetchhandleFormSubmit}> Go to Payment Methods</button>
 
             </div>
-        </form>
+        </div>
             </div>
         </div>
         </body>
