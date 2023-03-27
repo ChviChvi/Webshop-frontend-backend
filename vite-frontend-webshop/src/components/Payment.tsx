@@ -19,6 +19,7 @@ function FormResult(){
    const country = localStorage.getItem('Country');
    const email =  localStorage.getItem('email');
    const phone = localStorage.getItem('phone');
+   const price = localStorage.getItem('sum')
    const company = localStorage.getItem('Company');
    const vat = localStorage.getItem('VAT');
    const comment =localStorage.getItem('Comment');
@@ -35,6 +36,8 @@ function FormResult(){
             <p> {address}</p>
             <p>{postNumber} {city}</p>
             <p>{country}</p>
+
+            <h3 className="big">Total Price</h3> <span>{price} DKK</span>
         </div>
     )
 

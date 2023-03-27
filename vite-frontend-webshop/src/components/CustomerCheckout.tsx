@@ -124,16 +124,17 @@ const CustomerCheckout: React.FC = () => {
             <h2>
                 WEBSHOP PG2
             </h2>
+            <div className="nav">
+                <button className="bag-button"><Link to="/">
+                    <span className="fa-stack fa-1x" >
+                        <i className="fa fa-shopping-bag fa-stack-2x">    </i>
+                     <strong className="fa-stack-1x bag-text"></strong>
+                 </span></Link></button>
+            </div>
         </div>
 
 
-            <div className="nav">
-                 <button className="bag-button"><Link to="/">
-                    <span className="fa-stack fa-1x" >
-                        <i className="fa fa-shopping-bag fa-stack-2x">    </i>
-                     <strong className="fa-stack-1x bag-text">(5)</strong>
-                 </span></Link></button>
-            </div>
+
 
             <div>
         <form className="form" action="/Payment" onSubmit={handleFormSubmit}>

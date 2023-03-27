@@ -188,6 +188,10 @@ function CustomerBasket() {
         setPriceReduction(false);
     }
 
+    function handleSumSubmit() {
+        localStorage.setItem('sum', String(totalSum));
+    }
+
 
 
     let content;
@@ -282,7 +286,7 @@ function CustomerBasket() {
 
                 <div className="table-containter">
                 {content}
-                <button type="submit" className={'toCheckout'}><Link to="/checkoutform">Go to checkout
+                <button type="submit" onClick={handleSumSubmit} className={'toCheckout'}><Link to="/checkoutform">Go to checkout
                     <i className="fa-solid fa-arrow-right fa-icon"></i></Link></button>
                 </div>
 
