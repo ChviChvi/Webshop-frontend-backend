@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import '../stylesheets/Validation.css';
-import '../stylesheets/CustomerCheckout.css'
+
+import '../stylesheets/CustomerCheckout.css';
+
 import CustomerBasket from "./CustomerBasket";
 import {checkoutlist} from "../Basket";
 
@@ -27,7 +29,6 @@ const CustomerCheckout: React.FC = () => {
     const [Company, setCompany] = useState('');
     const [VAT, setVAT] = useState('');
     const [Comment, setComment] = useState('');
-
     const [subscribe, setSubscribe] = useState(false);
     const [conditions, setConditions] = useState(false);
 
@@ -56,6 +57,57 @@ const CustomerCheckout: React.FC = () => {
                 .catch((error) => console.error(error));
         }
     };
+    const CustomerCheckout = () => {
+        const [formData, setFormData] = useState({
+            firstName: "",
+            lastName: "",
+            email: "",
+            address: "",
+            city: "",
+            country: "",
+            zipCode: "",
+        });
+
+
+
+
+    };
+
+
+    const navigate = useNavigate();
+
+  function handleFormSubmit() {
+      localStorage.setItem('firstName', firstName);
+      localStorage.setItem('lastName', lastName);
+      localStorage.setItem('Address', Address);
+      localStorage.setItem('Address2', Address2);
+      localStorage.setItem('postNumber', postNumber);
+      localStorage.setItem('City', City);
+      localStorage.setItem('Country', Country);
+      localStorage.setItem('email',email);
+      localStorage.setItem('phone', phone);
+      localStorage.setItem('Company', Company);
+      localStorage.setItem('VAT', VAT);
+      localStorage.setItem('Comment', Comment);
+
+      return;
+      }
+ /*
+
+
+      const lname = document.getElementById('lastName')
+      const address = document.getElementById('Address')
+      const address2 = document.getElementById('Address2')
+      const postNum = document.getElementById('postNumber')
+      const city = document.getElementById('City')
+      const country = document.getElementById('Country')
+      const email = document.getElementById('email')
+      const phone = document.getElementById('phone')
+      const company = document.getElementById('Company')
+      const vat = document.getElementById('VAT')
+      const comment = document.getElementById('Comment')*/
+
+
 
 
 //TODO Add current number of shopping-cart-items to bag-icon instead of '5'
@@ -84,7 +136,7 @@ const CustomerCheckout: React.FC = () => {
             </div>
 
             <div>
-        <form className="form" action="/Payment">
+        <form className="form" action="/Payment" onSubmit={handleFormSubmit}>
             <div>
                 <input type="text" id="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder={"Firstname"} pattern="^[\p{L}\s-]+$" required/>
                 <input type="text" id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder={"Lastname"} pattern="^[\p{L}\s-]+$" required/>
@@ -135,11 +187,11 @@ const CustomerCheckout: React.FC = () => {
                 <input type="checkbox" id="subscribe" checked={subscribe} onChange={handleSubscribeChange} />
             </div>
             <div>
-                <label htmlFor="subscribe">I Accept The Terms & Conditions</label>
+                <label htmlFor="conditions">I Accept The Terms & Conditions</label>
                 <input type="checkbox" id="conditions" checked={conditions} required onChange={handleConditionChange} />
             </div>
             <div>
-                <button>Go to Payment Methods</button>
+                <button type="submit">Go to Payment Methods</button>
 
             </div>
         </form>

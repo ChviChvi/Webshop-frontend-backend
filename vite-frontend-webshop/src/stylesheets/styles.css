@@ -196,14 +196,15 @@ body{
 }
 
 .payment{
+
+    background-color: #FFF4E0;
     margin: auto;
+    margin-top: 50px;
     width: 10%;
     border-radius: 0%;
     border-style: solid;
 }
-.methodtest {
-    border-style: solid;
-}
+
 .icon {
     margin: 0 0;
     width: 116px;
@@ -219,7 +220,18 @@ body{
     height: fit-content;
     text-align: center;
     border-style: solid;
+    border-color: black;
     margin-bottom:2px;
+}
+.big{
+    font-weight: bolder;
+    font-size: 20px;
+    margin: 10px 0 5px 0;
+}
 
-
+.formDiv{
+    background-color: #FFF4E0;
+    border-style: dashed;
+    width: 25%;
+    position: absolute;
 }
