@@ -288,8 +288,7 @@ function CustomerBasket() {
 
                 <div className="table-containter">
                 {content}
-                    <Link to="/checkoutform">  <button type="submit" onClick={handleSumSubmit} className={'toCheckout'}>Go to checkout
-                    <i className="fa-solid fa-arrow-right fa-icon"></i></button></Link>
+                    <Link to="/checkoutform">  <button type="submit" onClick={handleSumSubmit} className={'toCheckout'}>Go to checkout <i className="fa-solid fa-arrow-right fa-icon"></i></button></Link>
                 </div>
 
             </div>
