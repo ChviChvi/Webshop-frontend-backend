@@ -172,7 +172,7 @@ const CustomerCheckout: React.FC = () => {
 
 
             <div>
-        <div className="form"  onSubmit={fetchhandleFormSubmit} >
+        <form className="form" action={"/Payment"} onSubmit={fetchhandleFormSubmit} >
             <div>
                 <input type="text" id="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder={"Firstname"} pattern="^[\p{L}\s-]+$" required/>
                 <input type="text" id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder={"Lastname"} pattern="^[\p{L}\s-]+$" required/>
@@ -231,7 +231,7 @@ const CustomerCheckout: React.FC = () => {
                 <button type="submit" onClick={fetchhandleFormSubmit}> Go to Payment Methods</button>
 
             </div>
-        </div>
+        </form>
             </div>
         </div>
         </body>
