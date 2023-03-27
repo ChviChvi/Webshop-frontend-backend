@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 //import {checkoutlist} from "../Basket";
-import { Link } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import '../stylesheets/reset.css';
 //import '../stylesheets/styles.css';
 //<script src="https://kit.fontawesome.com/b645b957d1.js" crossOrigin="anonymous"></script>
@@ -190,6 +190,7 @@ function CustomerBasket() {
 
     function handleSumSubmit() {
         localStorage.setItem('sum', String(totalSum));
+
     }
 
 
@@ -279,6 +280,7 @@ function CustomerBasket() {
     }
 
 
+
     return (
 
             <div className="container">
@@ -286,8 +288,8 @@ function CustomerBasket() {
 
                 <div className="table-containter">
                 {content}
-                <button type="submit" onClick={handleSumSubmit} className={'toCheckout'}><Link to="/checkoutform">Go to checkout
-                    <i className="fa-solid fa-arrow-right fa-icon"></i></Link></button>
+                    <Link to="/checkoutform">  <button type="submit" onClick={handleSumSubmit} className={'toCheckout'}>Go to checkout
+                    <i className="fa-solid fa-arrow-right fa-icon"></i></button></Link>
                 </div>
 
             </div>
