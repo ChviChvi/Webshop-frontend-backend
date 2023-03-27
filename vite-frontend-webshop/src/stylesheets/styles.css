@@ -220,9 +220,12 @@ body{
     width: 90%;
     height: fit-content;
     text-align: center;
-    border-style: solid;
-    border-color: black;
+    border: 2px solid gray;
     margin-bottom:2px;
+}
+
+.paymentoption.selected {
+    border: 3px solid black;
 }
 .big{
     font-weight: bolder;

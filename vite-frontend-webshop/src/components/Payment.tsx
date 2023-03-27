@@ -8,6 +8,7 @@ import GiftIcon from '../assets/giftIcon.png';
 import {Link, useLocation} from 'react-router-dom';
 
 
+
 function FormResult(){
    const fname = localStorage.getItem('firstName');
    const lname = localStorage.getItem('lastName');
@@ -38,6 +39,40 @@ function FormResult(){
     )
 
 }
+function PaymentForm() {
+    const [selectedPaymentOption, setSelectedPaymentOption] = useState('');
+
+    // Define a function to handle payment option selection
+    const handlePaymentOptionSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSelectedPaymentOption(event.target.value);
+    };
+
+    return (
+        <form className="payment">
+            <h3 className="big">Payment Method</h3>
+            <div className={`paymentoption ${selectedPaymentOption === 'MobilePay' ? 'selected' : ''}`}>
+                <input type="radio" id="mobilepay" name="paymentOption" value="MobilePay" checked={selectedPaymentOption === 'MobilePay'} onChange={handlePaymentOptionSelect} />
+                <label htmlFor="mobilepay">MobilePay</label>
+                <img className="icon" src={MobilePayIcon} alt="MobilePay icon" />
+            </div>
+
+            <div className={`paymentoption ${selectedPaymentOption === 'Invoice' ? 'selected' : ''}`}>
+                <input type="radio" id="invoice" name="paymentOption" value="Invoice" checked={selectedPaymentOption === 'Invoice'} onChange={handlePaymentOptionSelect} />
+                <label htmlFor="invoice">Invoice</label>
+                <div>
+                    <img className="cardicon" src={VisaIcon} alt="Visa icon" />
+                    <img className="cardicon" src={MasterIcon} alt="Mastercard icon" />
+                </div>
+            </div>
+
+            <div className={`paymentoption ${selectedPaymentOption === 'GiftCard' ? 'selected' :''}`}>
+                <input type="radio" id="giftcard" name="paymentOption" value="GiftCard" checked={selectedPaymentOption === 'GiftCard'} onChange={handlePaymentOptionSelect} />
+                <label htmlFor="giftcard">Gift Card </label>
+                <i className="fa fa-gift "></i>
+            </div>
+        </form>
+    );
+}
 function PaymentType(){
     return(
 
@@ -45,7 +80,7 @@ function PaymentType(){
 
         <h3 className="big">Payment Method</h3>
             <div className="paymentoption">
-        <input className="methodtest" type="radio" id="mobilepay" name="fav_language" value="MobilePay"/>
+        <input type="radio" id="mobilepay" name="fav_language" value="MobilePay"/>
           <label htmlFor="mobilepay">MobilePay</label>
             <img className="icon" src={MobilePayIcon}/></div>
 
@@ -57,11 +92,12 @@ function PaymentType(){
 
             <div className="paymentoption">
         <input type="radio" id="giftcard" name="fav_language" value="GiftCard"/>
-                <label htmlFor="giftcard">Gift Card</label>
+                <label htmlFor="giftcard">Gift Card </label>
                 <i className="fa fa-gift "></i></div>
 
 
     </form>
+
     )
 }
 
@@ -77,7 +113,7 @@ const Payment: React.FC = () => {
         <div>
 
             <FormResult/>
-            <PaymentType/>
+            <PaymentForm/>
 
 
 <div>
