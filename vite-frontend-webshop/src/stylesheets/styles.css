@@ -197,12 +197,13 @@ body{
 
 .payment{
 
-    background-color: #FFF4E0;
+    background-color: #FEF4E0;
     margin: auto;
     margin-top: 50px;
     width: 10%;
     border-radius: 0%;
     border-style: solid;
+    padding: 10px;
 }
 
 .icon {
