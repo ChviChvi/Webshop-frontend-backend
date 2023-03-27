@@ -188,10 +188,7 @@ function CustomerBasket() {
         setPriceReduction(false);
     }
 
-    function handleSumSubmit() {
-        localStorage.setItem('sum', String(totalSum));
 
-    }
 
 
 
@@ -214,67 +211,74 @@ function CustomerBasket() {
         const oldPrice = priceReduction || rebate>0 ? "oldPrice" : "";
         const newPrice =  "newPrice";
 
+        function handleSumSubmit() {
+            localStorage.setItem('sum',String(newSum));
+        }
 
         content = (
-            <div >
-                <table >
-                    <thead>
-                    <tr className="id-headers">
-                        <td>Product</td>
-                        <td>Price</td>
-                        <td>Quantity</td>
-                        <td>Total</td>
-                        <td>Remove</td>
-                        <td>Quantity for rebate</td>
-                        <td>Recommended for you</td>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {listItems}
-                    <tr className={`rows-css ${oldPrice}`}>
-                        <td colSpan={5}>Total price:</td>
-                        <td colSpan={2}>
-                            {totalSum.toFixed(2)} DKK
-                        </td>
-                    </tr>
-                    {priceReduction  && (
-                        <>
-                            <tr className={`rows-css ${newPrice}`}>
-                                <td colSpan={5}>New price!</td>
-                                <td colSpan={2}>
-                                    {newSum.toFixed(2)} {checkoutlist[0].currency}
-                                </td>
-                            </tr>
-                            <tr className={`rows-css ${newPrice}`}>
-                                <td colSpan={5}>You saved:</td>
-                                <td colSpan={2}>{((totalSum-newSum).toFixed(2))} {checkoutlist[0].currency}</td>
-                            </tr>
+            <>
+                <div>
+                    <table>
+                        <thead>
+                        <tr className="id-headers">
+                            <td>Product</td>
+                            <td>Price</td>
+                            <td>Quantity</td>
+                            <td>Total</td>
+                            <td>Remove</td>
+                            <td>Quantity for rebate</td>
+                            <td>Recommended for you</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {listItems}
+                        <tr className={`rows-css ${oldPrice}`}>
+                            <td colSpan={5}>Total price:</td>
+                            <td colSpan={2}>
+                                {totalSum.toFixed(2)} DKK
+                            </td>
+                        </tr>
+                        {priceReduction && (
+                            <>
+                                <tr className={`rows-css ${newPrice}`}>
+                                    <td colSpan={5}>New price!</td>
+                                    <td colSpan={2}>
+                                        {newSum.toFixed(2)} {checkoutlist[0].currency}
+                                    </td>
+                                </tr>
+                                <tr className={`rows-css ${newPrice}`}>
+                                    <td colSpan={5}>You saved:</td>
+                                    <td colSpan={2}>{((totalSum - newSum).toFixed(2))} {checkoutlist[0].currency}</td>
+                                </tr>
 
-                        </>
-                    )}
-                    {!priceReduction  && rebate>0 && (
+                            </>
+                        )}
+                        {!priceReduction && rebate > 0 && (
 
-                        <>
-                            <tr className={`rows-css ${newPrice}`}>
-                                <td colSpan={5}>New price!</td>
-                                <td colSpan={2}>
-                                    {(totalSum-rebate).toFixed(2)} {checkoutlist[0].currency}
-                                </td>
-                            </tr>
-                            <tr className={`rows-css ${newPrice}`}>
-                                <td colSpan={5}>You saved:</td>
-                                <td colSpan={2}>{((rebate).toFixed(2))} {checkoutlist[0].currency}</td>
-                            </tr>
+                            <>
+                                <tr className={`rows-css ${newPrice}`}>
+                                    <td colSpan={5}>New price!</td>
+                                    <td colSpan={2}>
+                                        {(totalSum - rebate).toFixed(2)} {checkoutlist[0].currency}
+                                    </td>
+                                </tr>
+                                <tr className={`rows-css ${newPrice}`}>
+                                    <td colSpan={5}>You saved:</td>
+                                    <td colSpan={2}>{((rebate).toFixed(2))} {checkoutlist[0].currency}</td>
+                                </tr>
 
-                        </>
-                    )}
+                            </>
+                        )}
 
 
+                        </tbody>
+                    </table>
 
-                    </tbody>
-                </table>
-
-            </div>
+                </div>
+                <Link to="/checkoutform">
+                    <button type="submit" onClick={handleSumSubmit} className={'toCheckout'}>Go to checkout <i
+                        className="fa-solid fa-arrow-right fa-icon"></i></button>
+                </Link></>
 
         );
     }
@@ -288,7 +292,7 @@ function CustomerBasket() {
 
                 <div className="table-containter">
                 {content}
-                    <Link to="/checkoutform">  <button type="submit" onClick={handleSumSubmit} className={'toCheckout'}>Go to checkout <i className="fa-solid fa-arrow-right fa-icon"></i></button></Link>
+
                 </div>
 
             </div>
