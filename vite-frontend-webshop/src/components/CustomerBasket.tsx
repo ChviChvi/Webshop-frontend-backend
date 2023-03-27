@@ -122,7 +122,7 @@ function CustomerBasket() {
         // 1 row with every id the item has. + deleteButton (item.d/pice/count/total)
         return (
             <tr key={item.id}>
-                <td>{item.id}</td>
+                <td>{item.name}</td>
                 <td>
                     {item.price} {item.currency}
                 </td>
@@ -219,7 +219,7 @@ function CustomerBasket() {
                     <table>
                         <thead>
                         <tr className="id-headers">
-                            <td>Product</td>
+                            <td data-testid="Product">Product</td>
                             <td>Price</td>
                             <td>Quantity</td>
                             <td>Total</td>
