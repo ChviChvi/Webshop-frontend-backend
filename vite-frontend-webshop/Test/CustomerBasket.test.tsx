@@ -1,4 +1,4 @@
-import {fireEvent, render, screen} from "@testing-library/react";
+import { render, screen} from "@testing-library/react";
 import {describe, expect, it, vi} from "vitest";
 import userEvent from "@testing-library/user-event";
 import CustomerBasket from "../src/components/App";
@@ -6,58 +6,67 @@ import CustomerBasket from "../src/components/App";
 
 
 
-describe(CustomerBasket.name, () => {
+
+describe(CustomerBasket.name,  () => {
 
 
-    it("should render table headers", () => {
-        render(<CustomerBasket />);
-        expect(screen.getByText("Product")).toBeInTheDocument();
-        expect(screen.getByText("Price")).toBeInTheDocument();
-        expect(screen.getByText("Quantity")).toBeInTheDocument();
-        expect(screen.getByText("Total")).toBeInTheDocument();
-        //expect(screen.getByText("Remove")).toBeInTheDocument();
-        expect(screen.getByText("Quantity for rebate")).toBeInTheDocument();
-        expect(screen.getByText("Recommended for you")).toBeInTheDocument();
-        expect(screen.getByText("Total price:")).toBeInTheDocument();
-        expect(screen.getByText("Go to checkout")).toBeInTheDocument();
+
+    it("should render table headers", async () => {
+
+        await render(<CustomerBasket />);
+        await screen.findByText('Product');
+        expect(screen.getByText('Product'))
+        expect(screen.getByText("Quantity"))
+        expect(screen.getByText("Total"))
+        expect(screen.getAllByText("Remove"))
+        expect(screen.getByText("Quantity for rebate"))
+        expect(screen.getByText("Recommended for you"))
+        expect(screen.getByText("Total price:"))
+        expect(screen.getByText("Go to checkout"))
+
+
     });
 
     it("should call onClick when the button is clicked",async () => {
 
         // Render the component that contains the button
-        render(<CustomerBasket/>);
+        await render(<CustomerBasket/>);
         //finds all count elements
-        const count = screen.getAllByTestId("count");
+        await screen.findAllByTestId("count");
+        const count = await screen.getAllByTestId("count");
         //expects the first count element to be the starting value 1
-        expect(count[0]).toHaveTextContent("1")
+        await expect(count[0]).toHaveTextContent("1")
         //finds all increment buttons
-        const incrementButton =screen.getAllByTestId("increment");
+        await screen.findAllByTestId("increment");
+        const incrementButton = await screen.getAllByTestId("increment");
         //clicks the first button found
         await userEvent.click(incrementButton[0]);
-        //finds all count elements
-        const count1 = screen.getAllByTestId("count");
+        //finds all count elements again
+        await screen.findAllByTestId("count");
+        const count1 = await screen.getAllByTestId("count");
         //expects the first count element to have incremented
         expect(count1[0]).toHaveTextContent("2")
-
-
-
     });
+
+
 
     it("should remove item", async() => {
 
         vi.spyOn(window, 'confirm').mockImplementation(() => true);
         // Render the component that contains the button
-        render(<CustomerBasket/>);
+        await render(<CustomerBasket/>);
         //expects the product to be in the document
-        expect(screen.queryByText('vitamin-d-90-100')).toBeInTheDocument();
+        await screen.findByText('D-vitamin, 90ug, 120 stk');
+        expect(screen.queryByText('D-vitamin, 90ug, 120 stk')).toBeInTheDocument();
         //get the remove button
         const removeButtons =screen.getAllByTestId("remove");
+        console.log("hej"+removeButtons.length)
         //click the remove button
         await userEvent.click(removeButtons[0])
         //expect the window.confirm to be called
         expect(window.confirm).toHaveBeenCalledTimes(1);
         //expect the product to be removed
-        expect(screen.queryByText('vitamin-d-90-100')).not.toBeInTheDocument();
+        expect(screen.queryByText('D-vitamin, 90ug, 120 stk')).not.toBeInTheDocument();
     });
 });
 
