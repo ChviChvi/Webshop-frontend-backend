@@ -7,7 +7,7 @@ import MasterIcon from '../assets/mastercard.svg';
 import GiftIcon from '../assets/giftIcon.png';
 import {Link, useLocation} from 'react-router-dom';
 import CustomerCheckout from "./CustomerCheckout";
-
+import {postOrder} from "../APICall";
 
 
 function FormResult(){
@@ -112,7 +112,7 @@ const Payment: React.FC = () => {
 
 
 
-
+// Right now the "continue to payment" button calls the postOrder API call
     return (
         <div>
 
@@ -121,15 +121,14 @@ const Payment: React.FC = () => {
 
 
 <div>
-    <Link to="/">  <button>Return to Basket
-    </button>   </Link>
+    <Link to="/">  <button>Return to Basket </button>   </Link>
 
 
 </div>
 
 
 <div>
-    <button>Continue to Payment
+    <button onClick={postOrder}>Continue to Payment
          </button>   </div>
 
         </div>

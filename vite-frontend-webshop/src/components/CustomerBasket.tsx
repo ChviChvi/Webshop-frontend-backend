@@ -25,6 +25,9 @@ function CustomerBasket() {
     const [checkoutlist, setCheckoutlist] = useState<Product[]>([]);
     const [counts, setCounts] = useState<number[]>([]);
 
+    //https://raw.githubusercontent.com/larsthorup/checkout-data/main/product-v2.json
+    // backendserver http://130.225.170.71:3000/product
+
     useEffect(() => {
         fetch('https://raw.githubusercontent.com/larsthorup/checkout-data/main/product-v2.json')
             .then(response => response.json())
@@ -214,8 +217,8 @@ function CustomerBasket() {
         const newPrice =  "newPrice";
 
 
-        const checkoutIds: string[] = [];
-        const checkoutCount: number[]=[];
+        const checkoutIdAndQuantity: { product_id: string; quantity: number; }[] = [];
+        //const checkoutCount: number[]=[];
 
         function handleSumSubmit () {
 
@@ -223,12 +226,15 @@ function CustomerBasket() {
                 if (deleteButton.includes(i)) {
                     continue; // Skip this iteration
                 }
-                const product = checkoutlist[i];
-                checkoutIds.push(product.id);
-                checkoutCount.push(counts[i])
+                const productID = checkoutlist[i].id;
+                const quantity = counts[i];
+                //checkoutItems.push({ product_id: productID, count: count });
+                //checkoutIds.push(product.id);
+                checkoutIdAndQuantity.push({ product_id: productID, quantity: quantity });
             }
-            localStorage.setItem('checkoutCount',JSON.stringify(checkoutCount))
-            localStorage.setItem('productID', JSON.stringify(checkoutIds));
+            localStorage.setItem('checkoutIdAndQuantity', JSON.stringify(checkoutIdAndQuantity));
+            //localStorage.setItem('checkoutCount',JSON.stringify(checkoutCount))
+            //localStorage.setItem('productID', JSON.stringify(checkoutIds));
             localStorage.setItem('sum',String(newSum));
         }
 
