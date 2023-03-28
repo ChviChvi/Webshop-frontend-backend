@@ -42,11 +42,15 @@ function CustomerBasket() {
     useEffect(() => {
         localStorage.setItem('counts', JSON.stringify(counts));
     }, [counts]);
+
+
+
     // initialize a deleteButton state which is an empty array --.
     const [deleteButton, setDeleteButton] = useState(() => {
         const storedDeleteButton = localStorage.getItem('deleteButton');
         return storedDeleteButton !== null ? JSON.parse(storedDeleteButton) : [];
     });
+
 
 
     //initialize state that keeps track of the price reduction!
@@ -209,7 +213,22 @@ function CustomerBasket() {
         const oldPrice = priceReduction || rebate>0 ? "oldPrice" : "";
         const newPrice =  "newPrice";
 
-        function handleSumSubmit() {
+
+        const checkoutIds: string[] = [];
+        const checkoutCount: number[]=[];
+
+        function handleSumSubmit () {
+
+            for (let i = 0; i < checkoutlist.length; i++) {
+                if (deleteButton.includes(i)) {
+                    continue; // Skip this iteration
+                }
+                const product = checkoutlist[i];
+                checkoutIds.push(product.id);
+                checkoutCount.push(counts[i])
+            }
+            localStorage.setItem('checkoutCount',JSON.stringify(checkoutCount))
+            localStorage.setItem('productID', JSON.stringify(checkoutIds));
             localStorage.setItem('sum',String(newSum));
         }
 

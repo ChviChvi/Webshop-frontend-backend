@@ -90,7 +90,8 @@ const CustomerCheckout: React.FC = () => {
       localStorage.setItem('Company', Company);
       localStorage.setItem('VAT', VAT);
       localStorage.setItem('Comment', Comment);
-
+      localStorage.setItem('subscribe', String(subscribe));
+      localStorage.setItem('conditions', String(conditions));
       return;
       }
 
