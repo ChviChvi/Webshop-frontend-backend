@@ -11,6 +11,8 @@ import Payment from "./Payment";
 import RegistrationForm from "./UserRegistration";
 import Login from "./Login";
 
+
+// bare test test :)
 function App() {
     return (
         <Router>
