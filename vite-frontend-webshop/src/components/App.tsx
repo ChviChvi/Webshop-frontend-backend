@@ -8,6 +8,8 @@ import { BrowserRouter as Router,Routes, Route }
 import CustomerBasket from "./CustomerBasket";
 import CheckoutForm from "./CustomerCheckout";
 import Payment from "./Payment";
+import RegistrationForm from "./UserRegistration";
+import Login from "./Login";
 
 function App() {
     return (
@@ -16,6 +18,11 @@ function App() {
                 <Route path="/checkoutform" element={<CheckoutForm />}/>
                 <Route path="/" element={<CustomerBasket/>}/>
                 <Route path="/Payment" element={<Payment/>}/>
+                <Route path="/Registration" element={<RegistrationForm/>}/>
+                //TODO nothing happens when you log in
+                <Route path="/Login" element={<Login onSuccess={() => console.log('you have successfully loged in *smileyface*')} />} />
+
+
             </Routes>
         </Router>
     );
