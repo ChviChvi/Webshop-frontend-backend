@@ -167,6 +167,10 @@ function CustomerBasket() {
                 <td>
                     {item.upsellProductId ? item.upsellProductId : null}
                 </td>
+
+                <td>
+                    <img className="ProductImages" src={item.imageUrl} alt={"Product Image"}/>
+                </td>
             </tr>
         );
     });
@@ -251,12 +255,13 @@ function CustomerBasket() {
                             <td>Remove</td>
                             <td>Quantity for rebate</td>
                             <td>Recommended for you</td>
+                            <td>Images</td>
                         </tr>
                         </thead>
                         <tbody>
                         {listItems}
                         <tr className={`rows-css ${oldPrice}`}>
-                            <td colSpan={5}>Total price:</td>
+                            <td colSpan={6}>Total price:</td>
                             <td colSpan={2}>
                                 {totalSum.toFixed(2)} DKK
                             </td>
@@ -264,13 +269,13 @@ function CustomerBasket() {
                         {priceReduction && (
                             <>
                                 <tr className={`rows-css ${newPrice}`}>
-                                    <td colSpan={5}>New price!</td>
+                                    <td colSpan={6}>New price!</td>
                                     <td colSpan={2}>
                                         {newSum.toFixed(2)} {checkoutlist[0].currency}
                                     </td>
                                 </tr>
                                 <tr className={`rows-css ${newPrice}`}>
-                                    <td colSpan={5}>You saved:</td>
+                                    <td colSpan={6}>You saved:</td>
                                     <td colSpan={2}>{((totalSum - newSum).toFixed(2))} {checkoutlist[0].currency}</td>
                                 </tr>
 

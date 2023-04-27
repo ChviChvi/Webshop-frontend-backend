@@ -43,6 +43,10 @@ function FormResult(){
     )
 
 }
+
+function submitOrder(){
+
+}
 function PaymentForm() {
     const [selectedPaymentOption, setSelectedPaymentOption] = useState('');
 
@@ -128,7 +132,7 @@ const Payment: React.FC = () => {
 
 
 <div>
-    <button onClick={postOrder}>Continue to Payment
+    <button onClick={postOrder}>Submit Order
          </button>   </div>
 
         </div>
