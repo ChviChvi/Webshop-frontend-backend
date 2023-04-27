@@ -212,21 +212,29 @@ body{
 }
 
 .icon {
+    position: relative;
     margin: 0 0;
-    width: 116px;
+    width: 250px;
     height: 48px;
+    object-fit: cover;
+    scale: 125%;
+
+    padding-right: 100px;
 }
 .cardicon{
     width: 58px;
     height: 48px;
+    vertical-align: middle
+
 }
 .paymentoption{
     margin: auto;
     width: 90%;
-    height: fit-content;
+    height: 85px;
     text-align: center;
     border: 2px solid gray;
     margin-bottom:2px;
+    overflow: hidden;
 }
 
 .paymentoption.selected {
@@ -237,7 +245,9 @@ body{
     font-size: 20px;
     margin: 10px 0 5px 0;
 }
-
+.fa-gift{
+   width: 100px;
+}
 .formDiv{
     background-color: #FFF4E0;
     border-style: dashed;
