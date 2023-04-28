@@ -5,8 +5,7 @@ import '../stylesheets/reset.css';
 import '../stylesheets/basket.css';
 import '../stylesheets/Validation.css';
 
-
-function CustomerBasket() {
+function scrollCustomerBasket() {
 
 
     interface Product {
@@ -94,11 +93,14 @@ function CustomerBasket() {
         };
 
         return (
-            <div>
-                <button className="decrement" onClick={clickHandlerDecrement}>-</button>
-                <span data-testid="count" className="count">{count}</span>
-                    <button  className="increment" onClick={clickHandlerIncrement}>+</button>
-            </div>
+            <>
+                <button className="decrement" onClick={clickHandlerDecrement}>-
+                </button>
+                <span data-testid="count" className="count">{count}
+                </span>
+                <button  className="increment" onClick={clickHandlerIncrement}>+
+                </button>
+            </>
         );
     }
 
@@ -159,13 +161,13 @@ function CustomerBasket() {
                      <td className="price-cell">
                          {item.rebateQuantity > 0 && counts[index] >= item.rebateQuantity ? (
                              <>
-                            <span
+                            <div
                                 className="regular-price">{total.toFixed(0)} {item.currency}
-                            </span>
-                                 <br/>
-                                 <span className="discounted-price">
+                            </div>
+
+                                 <div className="discounted-price">
                                 {(total * (1 - item.rebatePercent / 100)).toFixed(0)} {item.currency}
-                            </span>
+                            </div>
                              </>
                          ) : (
                              <>
@@ -225,9 +227,9 @@ function CustomerBasket() {
 
     if (checkoutlist.length === deleteButton.length) {
         content = (
-            <div>
+
                 <p data-testid="goodluck">  Your basket is empty, good luck :)</p>
-            </div>
+
         );
     } else {
 
@@ -262,18 +264,25 @@ function CustomerBasket() {
         }
 
         content = (
-            <>
 
-                    <table>
+            <div>
 
-                        <tbody>
-                        {listItems()}
-                        <tr className={`rows-css ${oldPrice}`}>
-                            <td colSpan={5}>Total price:</td>
-                            <td colSpan={2}>
+
+                <table>
+                    <tbody className="scrollable-table">
+                    {listItems()}
+                    </tbody>
+
+                </table>
+                <table>
+                    <tbody>
+                        <tr >
+                            <td className={`rows-css ${oldPrice}`} colSpan={5}>Total price:</td>
+                            <td className={`rows-css ${oldPrice}`} colSpan={2}>
                                 {totalSum.toFixed(2)} DKK
                             </td>
-                        </tr>
+                            <td className="filler-cell"></td>
+
                         {priceReduction && (
                             <>
                                 <tr className={`rows-css ${newPrice}`}>
@@ -281,14 +290,14 @@ function CustomerBasket() {
                                     <td colSpan={2}>
                                         {newSum.toFixed(2)} {checkoutlist[0].currency}
                                     </td>
-                                </tr>
-                                <tr className={`rows-css ${newPrice}`}>
+                                    <td className="filler-cell"></td>
                                     <td colSpan={5}>You saved:</td>
                                     <td colSpan={2}>{((totalSum - newSum).toFixed(2))} {checkoutlist[0].currency}</td>
                                 </tr>
 
                             </>
                         )}
+                        </tr>
                         {!priceReduction && rebate > 0 && (
 
                             <>
@@ -297,25 +306,16 @@ function CustomerBasket() {
                                     <td colSpan={2}>
                                         {(totalSum - rebate).toFixed(2)} {checkoutlist[0].currency}
                                     </td>
-                                </tr>
-                                <tr className={`rows-css ${newPrice}`}>
+
                                     <td colSpan={5}>You saved:</td>
                                     <td colSpan={2}>{((rebate).toFixed(2))} {checkoutlist[0].currency}</td>
                                 </tr>
 
                             </>
                         )}
-
-
                         </tbody>
                     </table>
-
-
-                <Link to="/checkoutform">
-                    <button type="submit" onClick={handleSumSubmit} className={'toCheckout'}>Go to checkout <i
-                        className="fa-solid fa-arrow-right fa-icon"></i></button>
-                </Link>
-            </>
+            </div>
 
         );
     }
@@ -341,85 +341,37 @@ function CustomerBasket() {
     };
 
     return (
-        <div>
-            <main>
             <div className="table-container">
+                <table>
+                    <tbody className="ProductNames_Table">
+                    <tr>
+                        <td>
+
+                        </td>
+                        <td className="ProductNames_Table_cells_Product" >
+                            Product
+                        </td>
+                        <td>
+
+                        </td>
+                        <td className="ProductNames_Table_cells">
+                             Total Price
+                        </td>
+                        <td className="ProductNames_Table_cells">
+                            Offer!
+                        </td>
+                        <td className="ProductNames_Table_cells">
+                            Suggestion
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
                 {content}
                 <button type="submit" className={'toCheckout'}><Link to="/checkoutform">Go to checkout
                     <i className="fa-solid fa-arrow-right fa-icon"></i></Link></button>
             </div>
-
-            </main>
-
-        </div>
-
     );
-
-}
-/*
-function AllItems(){
-    const listItems = checkoutlist.map((item, index) => {
-       const id = item.id
-
-    return (
-        <ul>
-            <li>
-                {id} <button>+</button>
-            </li>
-        </ul>
-
-    );
-    });
-    return(
-
-    listItems);
 }
 
-function CheckoutForm(){
-
-    return(
-        <section>
-            <h2>Payment information</h2>
-            <p>
-                <label htmlFor="card">
-                    <span>Card type:</span>
-                </label>
-                <select id="card" name="usercard">
-                    <option value="visa">Visa</option>
-                    <option value="mc">Mastercard</option>
-                    <option value="amex">American Express</option>
-                </select>
-            </p>
-            <p>
-                <label htmlFor="number">
-                    <span>Card number:</span>
-                    <strong><span aria-label="required">*</span></strong>
-                </label>
-                <input type="tel" id="number" name="cardnumber"/>
-            </p>
-            <p>
-                <label htmlFor="expiration">
-                    <span>Expiration date:</span>
-                    <strong><span aria-label="required">*</span></strong>
-                </label>
-                <input
-                    type="text"
-                    id="expiration"
-                    required="true"
-                    placeholder="MM/YY"
-                    pattern="^(0[1-9]|1[0-2])\/([0-9]{2})$"/>
-            </p>
-        </section>);
-
-}
-
-BELONGS IN  App() --------
- <div className="myDiv">
-            <AllItems/>
-        </div>
---------------------------
- */
-
-
-export default CustomerBasket;
+export default scrollCustomerBasket;
 

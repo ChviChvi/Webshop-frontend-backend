@@ -5,9 +5,15 @@
 /*    height: 100vh;*/
 /*}*/
 
-body{
+.middle{
     margin: 0px;
-    background: #E6DEB9;
+    height: 78rem;
+
+
+}
+
+.form-container {
+    top:0;
 }
 
 .container {

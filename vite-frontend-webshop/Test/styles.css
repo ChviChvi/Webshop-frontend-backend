@@ -48,7 +48,7 @@ td {
 }
 
 tr:nth-child(even) {
-    background-color: #F8EAD8;
+    background-color: blue;
 }
 
 button {

@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from "react";
 import {checkoutlist} from "../Basket";
-import '../stylesheets/styles.css';
+//import '../../Test/styles.css';
 import MobilePayIcon from '../assets/MP_blue.png';
 import VisaIcon from '../assets/visa.svg';
 import MasterIcon from '../assets/mastercard.svg';
