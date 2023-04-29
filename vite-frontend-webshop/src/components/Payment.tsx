@@ -43,6 +43,10 @@ function FormResult(){
     )
 
 }
+
+function submitOrder(){
+
+}
 function PaymentForm() {
     const [selectedPaymentOption, setSelectedPaymentOption] = useState('');
 
@@ -72,7 +76,7 @@ function PaymentForm() {
             <div className={`paymentoption ${selectedPaymentOption === 'GiftCard' ? 'selected' :''}`}>
                 <input type="radio" id="giftcard" name="paymentOption" value="GiftCard" checked={selectedPaymentOption === 'GiftCard'} onChange={handlePaymentOptionSelect} />
                 <label htmlFor="giftcard">Gift Card </label>
-                <i className="fa fa-gift "></i>
+                <i className="fa fa-gift fa-3x"></i>
             </div>
         </form>
     );
@@ -128,7 +132,7 @@ const Payment: React.FC = () => {
 
 
 <div>
-    <button onClick={postOrder}>Continue to Payment
+    <button onClick={postOrder}>Submit Order
          </button>   </div>
 
         </div>
