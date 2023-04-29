@@ -80,13 +80,13 @@ const Homepage: React.FC = () => {
                                 <span>Home</span>
                             </a>
                             <a className="main-nav__link2" onClick={handleToggleAbout}>
-                                <span>About</span>
+                                <span className="main-nav__link2_about">About</span>
                             </a>
                             <a className="main-nav__link3" href="/Login">
                                 <span>Login</span>
                             </a>
                             <a className="main-nav__link4" onClick={handleToggleCart}>
-                                <span>Basket</span>
+                                <span className="main-nav__link4_basket">Basket</span>
                             </a>
                         </li>
 
@@ -94,8 +94,6 @@ const Homepage: React.FC = () => {
                     </ul>
                 </nav>
             </header>
-
-
 
             <main>
                 <div className="main-content" >

@@ -90,6 +90,11 @@ header {
 
 }
 
+.main-nav__link4_basket:hover,
+.main-nav__link2_about:hover {
+    cursor: pointer;
+}
+
 /*.main-nav__item2 {
     width: 40%;
     background-color: red;
