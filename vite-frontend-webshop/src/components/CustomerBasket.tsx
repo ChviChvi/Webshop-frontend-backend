@@ -128,15 +128,20 @@ function CustomerBasket() {
 
         // 1 row with every id the item has. + deleteButton (item.d/pice/count/total)
         return (
-            <tr key={item.id}>
-                <td>{item.name}</td>
-                <td>
+            <tr key={item.id} >
+
+                <td className="table-cell">
+                    <div className="image-text-wrapper">
+                        <img className="ProductImages" src={item.imageUrl} alt={"Product Image"}/>
+                        <span>{item.name}</span>
+                    </div>
+                </td> <td className="table-cell">
                     {item.price} {item.currency}
                 </td>
-                <td>
+                <td className="table-cell">
                     <Counter index={index} />
                 </td>
-                <td>
+                <td className="table-cell">
                     { item.rebateQuantity > 0 && counts[index] >= item.rebateQuantity ? (
                         <>
                             <span
@@ -154,23 +159,20 @@ function CustomerBasket() {
                     )}
                 </td>
 
-                <td>
+                <td className="table-cell">
                     <button data-testid="remove" onClick={clickHandlerRemove}>Remove</button>
                 </td>
-                <td>
+                <td className="table-cell">
                     {item.rebatePercent > 0 && (
                         <>
                             Buy {item.rebateQuantity} to get {item.rebatePercent} % off.
                         </>
                     )}
                 </td>
-                <td>
+                <td className="table-cell">
                     {item.upsellProductId ? item.upsellProductId : null}
                 </td>
 
-                <td>
-                    <img className="ProductImages" src={item.imageUrl} alt={"Product Image"}/>
-                </td>
             </tr>
         );
     });
@@ -255,7 +257,7 @@ function CustomerBasket() {
                             <td>Remove</td>
                             <td>Quantity for rebate</td>
                             <td>Recommended for you</td>
-                            <td>Images</td>
+
                         </tr>
                         </thead>
                         <tbody>
