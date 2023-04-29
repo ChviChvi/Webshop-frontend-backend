@@ -89,7 +89,6 @@ const CustomerCheckout: React.FC = () => {
     const navigate = useNavigate();
 
   function handleFormSubmit() {
-
       localStorage.setItem('firstName', firstName);
       localStorage.setItem('lastName', lastName);
       localStorage.setItem('Address', Address);

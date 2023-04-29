@@ -8,6 +8,10 @@ import GiftIcon from '../assets/giftIcon.png';
 import {Link, useLocation} from 'react-router-dom';
 import CustomerCheckout from "./CustomerCheckout";
 import {postOrder} from "../APICall";
+import '../stylesheets/reset.css';
+import '../stylesheets/basket.css';
+import '../stylesheets/Validation.css';
+import '../stylesheets/Payment.css';
 
 
 function FormResult(){
@@ -124,14 +128,13 @@ const Payment: React.FC = () => {
             <PaymentForm/>
 
 
-<div>
-    <Link to="/">  <button>Return to Basket </button>   </Link>
-
+<div className="buttonContainer">
+    <Link to="/">  <button className="Payment_buttons">Return to Basket </button>   </Link>
 
 </div>
 
 
-<div>
+<div className="buttonContainer">
     <button onClick={postOrder}>Submit Order
          </button>   </div>
 
