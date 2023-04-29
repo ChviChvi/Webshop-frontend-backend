@@ -111,7 +111,7 @@ const Payment: React.FC = () => {
 
 
 
-
+// this is backend
 // Right now the "continue to payment" button calls the postOrder API call
     return (
         <div>

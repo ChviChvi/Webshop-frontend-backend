@@ -1,23 +1,25 @@
-/*.form {*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    height: 100vh;*/
-/*}*/
-
-.middle{
-    margin: 0px;
-    height: 78rem;
-
-
-}
 
 .form-container {
-    top:0;
+    position: absolute;
+    top: 10rem;
+    right: 0rem;
+
+    width: 25%;
+    height: 40%;
+    padding-top: 5rem;
+}
+
+
+main{
+    min-height: calc(100vh - 12rem);
+}
+.main-content {
+    position: relative;
+    padding: 2rem;
+    width: 100%;
 }
 
 .container {
-    position: relative;
 }
 
 .header {
@@ -36,7 +38,7 @@
     margin-right: auto;
     max-width: 600px;
     box-shadow: 0 0 10px rgb(0,0,0);
-    position: relative;
+
     top: 100px; /* set the top position to the height of the header */
     background-color: #3A4928;
     border-radius: 20px;

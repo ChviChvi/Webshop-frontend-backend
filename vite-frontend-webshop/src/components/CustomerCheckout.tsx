@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import { Link, useNavigate} from 'react-router-dom';
 
-
+import '../stylesheets/reset.css';
 import '../stylesheets/Validation.css';
 import '../stylesheets/CustomerCheckout.css';
 import '../stylesheets/HomePage.css';
+
+import Footer from "./Footer";
 
 import CustomerBasket from "./CustomerBasket";
 import {checkoutlist} from "../Basket";
 import scrollCustomerBasket from "./CustomerBasketScroll";
 
-
+import Homepage from "./Homepage";
 
 interface CityData {
     navn: string;
     postnr: string;
 }
-
-
 
 
 const CustomerCheckout: React.FC = () => {
@@ -77,7 +77,15 @@ const CustomerCheckout: React.FC = () => {
 
     };
 
+    const [showCart, setShowCart] = useState(true);
 
+
+
+
+    const handleToggleCart = () => {
+
+        setShowCart(!showCart);
+    }
     const navigate = useNavigate();
 
   function handleFormSubmit() {
@@ -159,23 +167,16 @@ const CustomerCheckout: React.FC = () => {
         <div className="background">
             <div className="background_overlay">
                 <header>
-
-
                     <nav className="main-nav">
-
-
                         <ul className="main-nav__list">
-
-
                             <li className="main-nav__item1">
                                 <a className="main-nav__link1" href="/">
                                     <span>Home</span>
                                 </a>
-
                                 <a className="main-nav__link3" href="/Login">
                                     <span>Login</span>
                                 </a>
-                                <a className="main-nav__link4" >
+                                <a className="main-nav__link4" onClick={handleToggleCart} >
                                     <span>Basket</span>
                                 </a>
                             </li>
@@ -186,9 +187,9 @@ const CustomerCheckout: React.FC = () => {
                 </header>
 
 
-
-                <div className="middle">
-                    <div className="form-container" style={{ position: "fixed", height: "88rem"}} >
+                <main>
+                <div className="main-content">
+                    <div className="form-container">
 
                         <form className="form" action={"/Payment"} onSubmit={fetchhandleFormSubmit} >
                             <div>
@@ -254,10 +255,26 @@ const CustomerCheckout: React.FC = () => {
                     </div>
 
 
+                    </div>
+                </main>
+
+
+
+                {Footer()}
+
+                <div className={`pane ${showCart ? "" : "pane-hide"}`}>
+                    <div className= "Your_Basket">
+                        You have xx items in your basket
+                    </div>
+                    <div className= "Your_Items">
+
+                        {scrollCustomerBasket()}
+
+                    </div>
+
+                    <div className= "Your_Price">
+                    </div>
                 </div>
-
-                <footer>Webshop danish pastry stuff</footer>
-
 
 
             </div>

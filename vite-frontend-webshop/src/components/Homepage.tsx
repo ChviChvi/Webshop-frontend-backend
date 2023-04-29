@@ -10,7 +10,7 @@ import '../stylesheets/HomePage.css';
 import CustomerBasket from "./CustomerBasket";
 import scrollCustomerBasket from "./CustomerBasketScroll";
 
-
+import Footer from "./Footer";
 
 import forestbackground2 from "../assets/forest-background2.jpg";
 
@@ -111,38 +111,9 @@ const Homepage: React.FC = () => {
 
             </main>
 
-            <footer>
 
-                <div className="footer-container">
-                    <div>
-                       <h3>
-                           contact
-                       </h3>
-                        <h4>
-                            text text
-                        </h4>
-                    </div>
+                {Footer()}
 
-                    <div>
-                        <h3>
-                           find us
-                       </h3>
-                        <h4>
-                            text text
-                        </h4>
-                    </div>
-
-                    <div>
-                        <h3>
-                           follow us
-                       </h3>
-                        <h4>
-                            text text
-                        </h4>
-                    </div>
-                </div>
-
-            </footer>
 
             <div className={`pane ${showCart ? "" : "pane-hide"}`}>
                 <div className= "Your_Basket">

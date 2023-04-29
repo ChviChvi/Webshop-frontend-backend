@@ -79,6 +79,8 @@ header {
 
 }
 
+
+
 .main-nav__link1:visited,
 .main-nav__link2:visited,
 .main-nav__link3:visited,
@@ -100,19 +102,20 @@ header {
 
 main {
     min-height: calc(100vh - 12rem);
-    display: fixed;
+
 }
 
 .main-content {
-    position: fixed;
+    position: relative;
     padding: 2rem;
     width: 100%;
 }
 
 .sidebar {
-    position: fixed;
+    position: absolute;
     top: 10rem;
-    right: 4rem;
+    right: 0rem;
+
     width: 25%;
     height: 40%;
     padding-top: 5rem;
@@ -144,7 +147,7 @@ footer {
 }
 
 .pane {
-    position: fixed;
+    position: absolute;
     width: 100%;
     max-width: 45rem;
     top: 9rem;
@@ -185,7 +188,7 @@ tbody.scrollable-table {
 }
 
 .About {
-    position: fixed;
+    position: absolute;
 
     width: 100%;
     max-width: 60rem;
