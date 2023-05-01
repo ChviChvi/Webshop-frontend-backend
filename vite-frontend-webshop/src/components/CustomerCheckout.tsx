@@ -104,6 +104,9 @@ const CustomerCheckout: React.FC = () => {
 
     function fetchhandleFormSubmit() {
 
+
+
+
       handleFormSubmit();
 
         const formData = {
@@ -151,6 +154,13 @@ const CustomerCheckout: React.FC = () => {
         setitemamount(count_length - anticount_length);
     }, [localStorage.getItem('counts'), localStorage.getItem('deleteButton')]);
 
+
+    function gotopayment(){
+        return(
+        window.location.href = "/Payment"
+    )
+    }
+
     return (
         <div className="background">
             <div className="background_overlay">
@@ -179,7 +189,7 @@ const CustomerCheckout: React.FC = () => {
                 <div className="main-content">
                     <div className="form-container">
 
-                        <form className="form" action={"/Payment"} onSubmit={fetchhandleFormSubmit} >
+                        <form className="form" action={gotopayment} onSubmit={fetchhandleFormSubmit} >
                             <div>
                                 <input type="text" id="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder={"Firstname"} pattern="^[\p{L}\s-]+$" required/>
                                 <input type="text" id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder={"Lastname"} pattern="^[\p{L}\s-]+$" required/>
