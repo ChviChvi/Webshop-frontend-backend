@@ -1,3 +1,4 @@
+/**
 import CustomerBasket from "../unused_files/CustomerBasket";
 import CheckoutForm from "./CustomerCheckout";
 import Payment from "./Payment";
@@ -42,15 +43,14 @@ function App() {
 
 export default App;
 
-/**
+*/
  import { BrowserRouter as Router,Routes, Route }
  from "react-router-dom";
 
- import CustomerBasket from "./CustomerBasket";
  import CheckoutForm from "./CustomerCheckout";
  import Payment from "./Payment";
- import RegistrationForm from "./UserRegistration";
- import Login from "./Login";
+ import RegistrationForm from "./backend/UserRegistration";
+ import Login from "./backend/Login";
  import Homepage from "./Homepage";
 
 
@@ -60,7 +60,6 @@ export default App;
         <Router>
             <Routes>
                 <Route path="/checkoutform" element={<CheckoutForm/>}/>
-                <Route path="/Basket" element={<CustomerBasket/>}/>
                 <Route path="/Payment" element={<Payment/>}/>
                 <Route path="/Registration" element={<RegistrationForm/>}/>
                 <Route path="/Login"
@@ -72,4 +71,3 @@ export default App;
 }
 
  export default App;
- */
