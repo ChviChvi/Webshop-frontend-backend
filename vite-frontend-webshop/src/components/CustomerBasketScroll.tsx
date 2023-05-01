@@ -249,6 +249,9 @@ function scrollCustomerBasket() {
         }
 
         handleSumSubmit()
+
+        // der sidder en bug her i <tr> ^^ men det er nedprioriteret
+
         content = (
 
             <div>

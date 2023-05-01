@@ -274,39 +274,3 @@ const CustomerCheckout: React.FC = () => {
 
 export default CustomerCheckout;
 
-/**
- * <body>
- <div className="container">
- <div className = "header">
- <h2>
- WEBSHOP PG2
- </h2>
- <div className="nav">
- <button className="bag-button"><Link to="/">
- <span className="fa-stack fa-1x" >
- <i className="fa fa-shopping-bag fa-stack-2x">    </i>
- <strong className="fa-stack-1x bag-text"></strong>
- </span></Link></button>
- </div>
- </div>
-
-
-
-
-
-
- <div className={`pane ${showCart ? "" : "pane-hide"}`}>
-
- {CustomerBasket()}
-
- </div>
- <div className={`About ${showAbout ? "" : "About-hide"}`}>
-
- <div>
- LOPSEM
- </div>
-
- </div>
-
- *
- */
