@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-//import {checkoutlist} from "../Basket";
+
 import {Link, useNavigate} from 'react-router-dom';
 import '../stylesheets/reset.css';
 import '../stylesheets/basket.css';
@@ -21,13 +21,11 @@ function CustomerBasket() {
     }
 
 
-
-
     // fetch the data from the API
     const [checkoutlist, setCheckoutlist] = useState<Product[]>([]);
     const [counts, setCounts] = useState<number[]>([]);
 
-    //https://raw.githubusercontent.com/larsthorup/checkout-data/main/product-v2.json
+
     // backendserver http://130.225.170.71:3000/product
 
     useEffect(() => {

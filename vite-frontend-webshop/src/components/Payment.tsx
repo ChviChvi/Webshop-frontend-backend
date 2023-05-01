@@ -4,9 +4,6 @@ import React, {useState,useEffect} from "react";
 import MobilePayIcon from '../assets/MP_blue.png';
 import VisaIcon from '../assets/visa.svg';
 import MasterIcon from '../assets/mastercard.svg';
-import GiftIcon from '../assets/giftIcon.png';
-
-import CustomerCheckout from "./CustomerCheckout";
 import {postOrder} from "../APICall";
 import '../stylesheets/reset.css';
 import '../stylesheets/basket.css';
@@ -81,7 +78,10 @@ function PaymentType(){
     function popup_and_post(e:any){
         e.preventDefault();
 
+        /** Backend */
         postOrder()
+        /** Backend */
+
         alert("Your order has been send!");
         window.location.href = "/";
 
@@ -141,10 +141,6 @@ function PaymentType(){
 
 const Payment: React.FC = () => {
 
-
-    /**
-     * Postorder function in here is backend orientated.
-     */
     return (
 
         <div className="background">

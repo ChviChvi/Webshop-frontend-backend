@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+/** this is backend course! */
+
 interface LoginFormProps {
     onSuccess: () => void;
 }
@@ -45,6 +47,7 @@ const LoginForm = ({ onSuccess }: LoginFormProps) => {
 
 
     return (
+        <div>
         <form onSubmit={handleSubmit}>
             <label>
                 Username:
@@ -65,6 +68,9 @@ const LoginForm = ({ onSuccess }: LoginFormProps) => {
             <button type="submit">Login</button>
             {error && <div>{error}</div>}
         </form>
+
+        <a href="/registration"> No account? registrate her!</a>
+        </div>
     );
 };
 

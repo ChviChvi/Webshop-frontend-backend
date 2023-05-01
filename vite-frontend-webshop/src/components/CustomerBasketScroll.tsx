@@ -1,13 +1,10 @@
 import React, {useEffect, useState} from "react";
-//import {checkoutlist} from "../Basket";
-import {Link, useNavigate} from 'react-router-dom';
+//import { Link, useNavigate} from 'react-router-dom';
 import '../stylesheets/reset.css';
 import '../stylesheets/basket.css';
 import '../stylesheets/Validation.css';
 
-
 function scrollCustomerBasket() {
-
 
     interface Product {
         id: string;
@@ -20,18 +17,13 @@ function scrollCustomerBasket() {
         imageUrl: string;
     }
 
-
-
     const [currentPage, setCurrentPage] = useState(window.location.pathname);
 
     // fetch the data from the API
     const [checkoutlist, setCheckoutlist] = useState<Product[]>([]);
     const [counts, setCounts] = useState<number[]>([]);
 
-    //https://raw.githubusercontent.com/larsthorup/checkout-data/main/product-v2.json
     // backendserver http://130.225.170.71:3000/product
-
-
 
         useEffect(() => {
             fetch('https://raw.githubusercontent.com/larsthorup/checkout-data/main/product-v2.json')
@@ -109,8 +101,6 @@ function scrollCustomerBasket() {
         );
     }
 
-
-
     let rebate=0;
 
     // creates the table-body
@@ -133,14 +123,7 @@ function scrollCustomerBasket() {
                  rebate += total - (total * (1 - item.rebatePercent / 100))
              }
 
-
-             // 1 row with every id the item has. + deleteButton (item.d/pice/count/total)
-             //<tr key={item.id}>
-             //                 <td>{item.name}</td>
-             //                 <td>
-             //                     {item.price} {item.currency}
              const upsellProduct = item.upsellProductId ? checkoutlist.find(product => product.id === item.upsellProductId) : null;
-
 
 
              return (
@@ -168,13 +151,13 @@ function scrollCustomerBasket() {
                      <td className="price-cell">
                          {item.rebateQuantity > 0 && counts[index] >= item.rebateQuantity ? (
                              <>
-                            <div
-                                className="regular-price">{total.toFixed(0)} {item.currency}
-                            </div>
+                                 <div
+                                     className="regular-price">{total.toFixed(0)} {item.currency}
+                                 </div>
 
                                  <div className="discounted-price">
-                                {(total * (1 - item.rebatePercent / 100)).toFixed(0)} {item.currency}
-                            </div>
+                                     {(total * (1 - item.rebatePercent / 100)).toFixed(0)} {item.currency}
+                                 </div>
                              </>
                          ) : (
                              <>
@@ -229,8 +212,6 @@ function scrollCustomerBasket() {
         setPriceReduction(false);
     }
 
-
-
     let content;
     // Renders the headers, body, and bottom row.
 
@@ -266,6 +247,7 @@ function scrollCustomerBasket() {
 
 
         }
+
         handleSumSubmit()
         content = (
 
@@ -281,7 +263,7 @@ function scrollCustomerBasket() {
                 </table>
                 <table>
                     <tbody>
-                    <tr >
+                    <tr>
                         <td className={`rows-css ${oldPrice}`} colSpan={5}>Total price:</td>
                         <td className={`rows-css ${oldPrice}`} colSpan={2}>
                             {totalSum.toFixed(2)} DKK

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import '../stylesheets/reset.css';
 import '../stylesheets/HomePage.css';
-import CustomerBasket from "./CustomerBasket";
+import CustomerBasket from "../unused_files/CustomerBasket";
 import scrollCustomerBasket from "./CustomerBasketScroll";
 
 
@@ -53,14 +53,6 @@ const Homepage: React.FC = () => {
         }
     }, [showCart, showAbout, showShop]);
 
-    // const handleToggleTitle = () => {
-    //     if(showTitle){
-    //         setShowCart(false)
-    //         setShowAbout(false)
-    //     }
-    //     setShowTitle(!showTitle);
-    // }
-
     const handleDismissBar = () => {
         const clickableBar = document.getElementById("clickable-bar");
         if (clickableBar) {
@@ -99,80 +91,73 @@ const Homepage: React.FC = () => {
     };
 
 
-
-
-
-
-
     return (
         <div className="background">
             <div className="background_overlay">
-            <header>
-                <div id="clickable-bar" className="clickable-bar" onClick={handleDismissBar}>
-                    Get free shipping on your first order!
-                </div>
+                <header>
+                    <div id="clickable-bar" className="clickable-bar" onClick={handleDismissBar}>
+                        Get free shipping on your first order!
+                    </div>
 
-                <nav className="main-nav">
-
-
-                    <ul className="main-nav__list">
+                    <nav className="main-nav">
 
 
-                        <li className="main-nav__item1">
-                            <a className="main-nav__link1" href="/">
-                                <span>Home</span>
-                            </a>
-                            <a className="main-nav__link5" onClick={handleToggleShop}>
-                                <span className="main-nav__link5_shop">Shop </span>
-                            </a>
-                            <a className="main-nav__link4" onClick={handleToggleCart}>
-                                <span className="main-nav__link4_basket">Basket ({itemamount}) </span>
-                            </a>
-                            <a className="main-nav__link2" onClick={handleToggleAbout}>
-                                <span className="main-nav__link2_about">About</span>
-                            </a>
-                            <a className="main-nav__link3" href="/Login">
-                                <span>Login</span>
-                            </a>
+                        <ul className="main-nav__list">
 
 
+                            <li className="main-nav__item1">
+                                <a className="main-nav__link1" href="/">
+                                    <span>Home</span>
+                                </a>
+                                <a className="main-nav__link5" onClick={handleToggleShop}>
+                                    <span className="main-nav__link5_shop">Shop </span>
+                                </a>
+                                <a className="main-nav__link4" onClick={handleToggleCart}>
+                                    <span className="main-nav__link4_basket">Basket ({itemamount}) </span>
+                                </a>
+                                <a className="main-nav__link2" onClick={handleToggleAbout}>
+                                    <span className="main-nav__link2_about">About</span>
+                                </a>
+                                <a className="main-nav__link3" href="/Login">
+                                    <span>Login</span>
+                                </a>
 
 
-                        </li>
+                            </li>
 
 
-                    </ul>
-                </nav>
-            </header>
+                        </ul>
+                    </nav>
+                </header>
 
-            <main>
-                <div className="main-content" >
+                <main>
+                    <div className="main-content">
 
-                    <div className="sidebar">
+                        <div className="sidebar">
+
+                        </div>
 
                     </div>
 
-                </div>
 
-
-            </main>
+                </main>
 
 
                 {Footer()}
 
 
-            <div className={`pane ${showCart ? "" : "pane-hide"}`}>
-                <div className= "Your_Basket">
-                    You have {itemamount} items in your basket
-                </div>
-                        <div className= "Your_Items">
+                <div className={`pane ${showCart ? "" : "pane-hide"}`}>
+                    <div className="Your_Basket">
+                        You have {itemamount} items in your basket
+                    </div>
+                    <div className="Your_Items">
 
                         {scrollCustomerBasket()}
 
-                        </div>
+                    </div>
 
 
-            </div>
+                </div>
 
 
                 <div className={`Shop ${showShop ? "" : "Shop-hide"}`}>
@@ -205,43 +190,45 @@ const Homepage: React.FC = () => {
                 </div>
 
 
-            <div className={`About ${showAbout ? "" : "About-hide"}`}>
+                <div className={`About ${showAbout ? "" : "About-hide"}`}>
 
-                <div className="About_box">
-                    <div className="About_header">
-                        About WarmShop
+                    <div className="About_box">
+                        <div className="About_header">
+                            About WarmShop
+                        </div>
+                        <div className="About_text1">
+                            Welcome to WarmShop, your one-stop destination for all kinds of products!
+                            As a team of young and dynamic web developers, we created WarmShop with
+                            the goal of making online shopping more convenient and enjoyable for everyone.
+                            Our passion for technology and customer satisfaction drives us to offer a wide
+                            range of products at competitive prices, while our user-friendly platform ensures a
+                            fantastic shopping experience from start to finish.
+                            We understand that shopping for the things you need should be easy, and we're committed to
+                            making it that way.
+                        </div>
+                        <div className="About_text2">
+                            Thank you for choosing WarmShop, and we look forward to serving you!
+                        </div>
                     </div>
-                    <div className="About_text1">
-                        Welcome to WarmShop, your one-stop destination for all kinds of products!
-                        As a team of young and dynamic web developers, we created WarmShop with
-                        the goal of making online shopping more convenient and enjoyable for everyone.
-                        Our passion for technology and customer satisfaction drives us to offer a wide
-                        range of products at competitive prices, while our user-friendly platform ensures a fantastic shopping experience from start to finish.
-                        We understand that shopping for the things you need should be easy, and we're committed to making it that way.
-                    </div>
-                    <div className="About_text2">
-                        Thank you for choosing WarmShop, and we look forward to serving you!
-                    </div>
+
                 </div>
-
-            </div>
                 <div className={'Title-Container'}>
-            <div className={`Title ${showTitle ? "" : "Title-hide"}`}>
-                <div className="Title-text">
-                    <div>
-                        <span >W</span>
-                        <span>ARM</span>
-                    </div>
-                    <div className='shopword'>
-                        <span >S</span>
-                        <span>HOP</span>
+                    <div className={`Title ${showTitle ? "" : "Title-hide"}`}>
+                        <div className="Title-text">
+                            <div>
+                                <span>W</span>
+                                <span>ARM</span>
+                            </div>
+                            <div className='shopword'>
+                                <span>S</span>
+                                <span>HOP</span>
 
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            </div>
 
-        </div>
+            </div>
         </div>
     )
 };

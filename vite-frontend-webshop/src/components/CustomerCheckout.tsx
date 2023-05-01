@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { Link, useNavigate} from 'react-router-dom';
-
+//import { Link, useNavigate} from 'react-router-dom';
 import '../stylesheets/reset.css';
 import '../stylesheets/Validation.css';
 import '../stylesheets/CustomerCheckout.css';
@@ -8,11 +7,7 @@ import '../stylesheets/HomePage.css';
 
 import Footer from "./Footer";
 
-import CustomerBasket from "./CustomerBasket";
-
 import scrollCustomerBasket from "./CustomerBasketScroll";
-
-import Homepage from "./Homepage";
 
 interface CityData {
     navn: string;
@@ -140,23 +135,6 @@ const CustomerCheckout: React.FC = () => {
             });
     }
 
-
- /*
-
-
-      const lname = document.getElementById('lastName')
-      const address = document.getElementById('Address')
-      const address2 = document.getElementById('Address2')
-      const postNum = document.getElementById('postNumber')
-      const city = document.getElementById('City')
-      const country = document.getElementById('Country')
-      const email = document.getElementById('email')
-      const phone = document.getElementById('phone')
-      const company = document.getElementById('Company')
-      const vat = document.getElementById('VAT')
-      const comment = document.getElementById('Comment')*/
-
-
     const [itemamount, setitemamount] = useState<number>(0);
 
     useEffect(() => {
@@ -173,11 +151,7 @@ const CustomerCheckout: React.FC = () => {
         setitemamount(count_length - anticount_length);
     }, [localStorage.getItem('counts'), localStorage.getItem('deleteButton')]);
 
-
-//TODO Add current number of shopping-cart-items to bag-icon instead of '5'
     return (
-
-
         <div className="background">
             <div className="background_overlay">
                 <header>
