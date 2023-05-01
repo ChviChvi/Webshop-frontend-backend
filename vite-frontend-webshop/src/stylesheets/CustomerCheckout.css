@@ -38,8 +38,9 @@ main{
     text-align: center;
     padding: 1rem;
 
-    top:0;
-
+    top: 0;
+    left: 0;
+    transition: 0.8s ease;
     min-width: 60vh;
     height: calc(100vh - 18vh);
     background-color: rgba(238, 235, 235, 0.38);
@@ -48,6 +49,7 @@ main{
     color: #000000;
     z-index: 2;
     max-height: 74vh;
+    overflow-y: scroll;
 
 
 }
