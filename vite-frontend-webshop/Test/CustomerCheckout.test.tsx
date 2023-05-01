@@ -7,6 +7,10 @@ import CustomerCheckout from '../src/components/CustomerCheckout';
 
 describe(CustomerCheckout.name, () => {
 
+
+    //Testing the validation of the form submission,
+    // first empty and after with names
+
     it('form validation and submission', async () => {
         render(<CustomerCheckout/>);
 

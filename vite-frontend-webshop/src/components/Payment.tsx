@@ -75,6 +75,12 @@ function PaymentType(){
 
     };
 
+    function goback(e:any){
+        e.preventDefault();
+            window.location.href = "/";
+
+    }
+
     function popup_and_post(e:any){
         e.preventDefault();
         if (selectedOption!=''){
@@ -119,18 +125,11 @@ function PaymentType(){
                 </div>
             </div>
             <div className="buttonContainer">
-                <a href="/">
-                    <button className="Payment_buttons">Return to Basket</button>
-                </a>
-
+                    <button className="Payment_buttons" onClick={goback}>Return to Basket</button>
             </div>
 
-
             <div className="buttonContainer">
-
-                <button className="Payment_buttons" onClick={popup_and_post}>Submit Order
-                </button>
-
+                <button className="Payment_buttons" onClick={popup_and_post}>Submit Order</button>
             </div>
         </form>
 
