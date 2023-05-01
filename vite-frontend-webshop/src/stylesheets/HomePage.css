@@ -179,7 +179,7 @@ footer {
 }
 .ProductNames_Table_cells,
 .ProductNames_Table_cells_Product{
-    justify-content: center; /* center the child elements horizontally */
+    justify-content: center;
     align-items: center;
     padding-top: 1rem;
 }
@@ -255,7 +255,7 @@ tbody.scrollable-table {
     margin-top: 4rem;
     overflow-y: auto;
     background-color: rgba(238, 235, 235, 0.38);
-    cursor: pointer;
+
     z-index: 1;
 }
 
@@ -277,7 +277,6 @@ tbody.scrollable-table {
     margin-top: 4rem;
     overflow-y: auto;
     background-color: rgba(238, 235, 235, 0.38);
-    cursor: pointer;
     z-index: 1;
     overflow-x: hidden;
 

@@ -1,7 +1,7 @@
 
 .form-container {
     position: absolute;
-    justify-content: center; /* center the child elements horizontally */
+    justify-content: center;
     align-items: center;
     width: 50%;
     height: calc(100vh - 18vh);
@@ -52,7 +52,6 @@ main{
 
 }
 input{
-    /*width: 100%;*/
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: content-box;
@@ -71,57 +70,28 @@ input{
     position: relative;
     text-align: center;
     width: 100%;
-    top: 100px; /* set the top position to the height of the header */
+    top: 100px;
     background-color: red;
 
 }
 
+.payment_submitbutton {
+    Cursor: pointer;
+
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    height: 4rem;
+    font-size: 18px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: rgba(229, 229, 229, 0.38);
+}
+.payment_submitbutton:hover {
+    background-color: rgba(73, 201, 9, 0.38);;
+}
 
 
-/*.firstname-box {*/
-/*    width: 50px;*/
-/*    font-size: 10px ;*/
-/*}*/
 
-
-
-
-
-/*.links {*/
-
-/*    background: blue;*/
-/*    color: white;*/
-
-/*}*/
-
-/*.information {*/
-/*    padding: 60px;*/
-/*    text-align: center;*/
-/*    background: red;*/
-/*    color: white;*/
-/*    width: 200vh;*/
-
-/*}*/
-
-
-/*!* CSS property for header section *!*/
-
-
-/*!* CSS property for navigation menu *!*/
-/*.nav_menu {*/
-/*    overflow: hidden;*/
-/*    background-color: #333;*/
-/*}*/
-/*.nav_menu a {*/
-/*    float: left;*/
-/*    display: block;*/
-/*    color: white;*/
-/*    text-align: center;*/
-/*    padding: 14px 16px;*/
-/*    text-decoration: none;*/
-/*}*/
-/*.nav_menu a:hover {*/
-/*    background-color: white;*/
-/*    color: green;*/
-/*}*/
 

@@ -1,113 +1,123 @@
 
-
-
-
-
-
-
-
-/*
-button {
-    background: white;
-    border: none;
-    color: black;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 10%;
-    margin: 4px 10px;
-    outline: #D4BF88 2px solid;
-}*/
-
-/*
-button:hover {
-    outline: red 2px solid;
-    opacity: 0.6;
-    transition: 4.9s ease;
-}*/
-
-
-
-
-
-
-
-
-/**Navigation bar currently only containing shopping-bag */
-
-
-
-
-
-
 .payment{
+    position: absolute;
 
-    position: relative;
-    margin: auto;
-    margin-top: 50px;
-    width: 10%;
-    border-radius: 0%;
-    border-style: solid;
-    padding: 10px;
+    width: 100%;
+    max-width: 40rem;
+
+    right: 10%;
+    height: calc(100vh - 25rem);
+    padding: 2rem;
+    transition: 0.8s ease;
+    margin-top: 4rem;
+    overflow-y: auto;
+    background-color: rgba(238, 235, 235, 0.38);
+
+    z-index: 3;
+
 }
 
 .icon {
-    position: relative;
-    margin: 5px 0 0 0;
 
-    width: 250px;
-    height: 48px;
-    object-fit: cover;
-    scale: 135%;
-    padding-right: 90px;
+    width: 22rem;
+    height: 14rem;
+
+    padding-bottom: 4rem;
+    vertical-align: middle;
+
 }
 .cardicon{
-    width: 58px;
-    height: 48px;
-    vertical-align: middle
+    padding-top: 2vh;
+    width: 7rem;
+    height: 7rem;
+    vertical-align: middle;
 
+}
+.fa-gift{
+    font-size: 5rem;
+    padding-top: 2vh;
 }
 .paymentoption{
     position: relative;
     margin: auto;
-    width: 90%;
-    height: 85px;
+    width: 30vh;
+    height: 13vh;
     text-align: center;
-    border: 2px solid gray;
+    border: 4px solid #000000;
     margin-bottom:2px;
-    overflow: hidden;
     z-index: 3;
+    background-color: rgba(238, 235, 235, 0.38);
 }
 
 .paymentoption.selected {
-    border: 3px solid black;
+    border: 8px solid #ffffff;
+    animation: glowing2 2s infinite;
 }
+
+@keyframes glowing2 {
+
+    50% {
+
+        border-color:  #F29553FF;
+    }
+    100% {
+
+        text-shadow:  0 0 20px #f29553;
+    }
+}
+
 .big{
     font-weight: bolder;
-    font-size: 20px;
+    font-size: 40px;
     margin: 20px 0 10px 0;
     text-align: center;
 }
-
-.fa-gift{
-    width: 100px;
-}
-.formDiv{
-    margin-left: 50px;
-    width: 100%;
+.small{
     text-align: center;
-    border-style: solid;
-    width: 25%;
-    position: absolute;
+    font-size: 20px;
+}
+.bigandsmall{
+    padding-top: calc((100vh - 25rem)/5);;
 }
 
-.Payment_buttons{
-    margin: auto;
 
 
+
+.formDiv{
+    position: absolute;
+
+    width: 100%;
+    max-width: 40rem;
+
+    left: 10%;
+    height: calc(100vh - 25rem);
+    padding: 2rem;
+    transition: 0.8s ease;
+    margin-top: 4rem;
+    overflow-y: auto;
+    background-color: rgba(238, 235, 235, 0.38);
+
+
+
+    z-index: 1;
+}
+
+
+.Payment_buttons {
+    Cursor: pointer;
+
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 4rem;
+    font-size: 18px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: rgba(229, 229, 229, 0.38);
+}
+.Payment_buttons:hover {
+    background-color: rgba(73, 201, 9, 0.38);;
 }
 .buttonContainer{
     width: fit-content;
