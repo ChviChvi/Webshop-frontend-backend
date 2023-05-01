@@ -68,7 +68,7 @@ function submitOrder(){
 
 function PaymentType(){
 
-    const [selectedOption, setSelectedOption] = useState('');
+    const [selectedOption, setSelectedOption] = useState('MobilePay');
 
     const handleOptionClick = (event: React.MouseEvent<HTMLInputElement>) => {
         setSelectedOption(event.currentTarget.value);
@@ -94,7 +94,7 @@ function PaymentType(){
             <h3 className="big">Payment Method</h3>
             <div>
                 <div className={`paymentoption ${selectedOption === 'MobilePay' ? 'selected' : ''}`}>
-                    <input type="radio" id="mobilepay" name="payment-option" value="MobilePay" onClick={handleOptionClick} />
+                    <input type="radio" id="mobilepay" name="payment-option" value="MobilePay" onClick={handleOptionClick} checked={selectedOption === 'MobilePay'} />
                     <label htmlFor="mobilepay">MobilePay</label>
                     <div>
                     <img className="icon" src={MobilePayIcon}/>
