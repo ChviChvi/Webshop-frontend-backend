@@ -131,7 +131,7 @@ function scrollCustomerBasket() {
                  <tr key={item.id} className="items">
 
                      <td className="remove-cell">
-                         <button data-testid="remove" onClick={clickHandlerRemove} className="remove-button"></button>
+                         <button   onClick={clickHandlerRemove} className="remove-button"></button>
                      </td>
 
                      <td className="image-cell">
@@ -318,7 +318,7 @@ function scrollCustomerBasket() {
 
     }
 
-
+/** unused API
     const handleSaveData = () => {
         const data = {
             checkoutlist,
@@ -337,7 +337,7 @@ function scrollCustomerBasket() {
             .then(data => console.log(data))
             .catch(error => console.error(error));
     };
-
+*/
     return (
             <div className="table-container">
                 <table>

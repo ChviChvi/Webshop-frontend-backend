@@ -6,7 +6,7 @@ import userEvent from "@testing-library/user-event";
 describe(App.name, () => {
 
 
-    // TEST is the NAV being rendered?
+    // TEST is the NAV being rendered
 
     it("all routes are avaliable", () => {
         render(<App />);
