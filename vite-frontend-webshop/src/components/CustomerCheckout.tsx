@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-//import { Link, useNavigate} from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import '../stylesheets/reset.css';
 import '../stylesheets/Validation.css';
 import '../stylesheets/CustomerCheckout.css';
@@ -161,9 +161,9 @@ const CustomerCheckout: React.FC = () => {
                                 <a className="main-nav__link1" href="/">
                                     <span>Home</span>
                                 </a>
-                                <a className="main-nav__link3" href="/Login">
+                                <Link className="main-nav__link3" to="/Login">
                                     <span>Login</span>
-                                </a>
+                                </Link>
                                 <a className="main-nav__link4" onClick={handleToggleCart} >
                                     <span>Basket</span>
                                 </a>

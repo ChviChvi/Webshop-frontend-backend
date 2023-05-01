@@ -1,4 +1,5 @@
 import React, {useState,useEffect} from "react";
+import { Link } from 'react-router-dom';
 
 //import '../../Test/styles.css';
 import MobilePayIcon from '../assets/MP_blue.png';
@@ -148,12 +149,12 @@ const Payment: React.FC = () => {
                     <nav className="main-nav">
                         <ul className="main-nav__list">
                             <li className="main-nav__item1">
-                                <a className="main-nav__link1" href="/">
+                                <Link className="main-nav__link1" to="/">
                                     <span>Home</span>
-                                </a>
-                                <a className="main-nav__link3" href="/Login">
+                                </Link>
+                                <Link className="main-nav__link3" to="/Login">
                                     <span>Login</span>
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </nav>

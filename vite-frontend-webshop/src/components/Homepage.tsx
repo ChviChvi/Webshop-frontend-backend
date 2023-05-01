@@ -106,9 +106,9 @@ const Homepage: React.FC = () => {
 
 
                             <li className="main-nav__item1">
-                                <a className="main-nav__link1" href="/">
+                                <Link className="main-nav__link1" to="/">
                                     <span>Home</span>
-                                </a>
+                                </Link>
                                 <a className="main-nav__link5" onClick={handleToggleShop}>
                                     <span className="main-nav__link5_shop">Shop </span>
                                 </a>
@@ -118,10 +118,9 @@ const Homepage: React.FC = () => {
                                 <a className="main-nav__link2" onClick={handleToggleAbout}>
                                     <span className="main-nav__link2_about">About</span>
                                 </a>
-                                <a className="main-nav__link3" href="/Login">
+                                <Link className="main-nav__link3" to="/login">
                                     <span>Login</span>
-                                </a>
-
+                                </Link>
 
                             </li>
 

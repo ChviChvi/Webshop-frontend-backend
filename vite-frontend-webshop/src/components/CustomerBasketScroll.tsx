@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-//import { Link, useNavigate} from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import '../stylesheets/reset.css';
 import '../stylesheets/basket.css';
 import '../stylesheets/Validation.css';
@@ -365,15 +365,17 @@ function scrollCustomerBasket() {
                     </tbody>
                 </table>
                 {content}
-                <a className="main-nav__link6"  href="/checkoutform">
+
+
+                    <Link  className="main-nav__link6" to="/checkoutform">
                     <div className= "Your_Price">
                         {currentPage === '/' && (
                             <span>Go to checkout &rarr;
                                 </span>
                         )}
                     </div>
+                    </Link>
 
-                </a>
 
             </div>
     );
