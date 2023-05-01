@@ -6,6 +6,9 @@ import userEvent from "@testing-library/user-event";
 
 describe(App.name, () => {
 
+
+    // TEST is the NAV being rendered?
+
     it("all routes are avaliable", () => {
         render(<App />);
         expect(screen.getByText("Home"));
