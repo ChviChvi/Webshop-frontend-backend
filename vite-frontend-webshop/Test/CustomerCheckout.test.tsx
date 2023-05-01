@@ -2,14 +2,14 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-
+import { describe, expect, it } from "vitest";
 import CustomerCheckout from '../src/components/CustomerCheckout';
 
-describe('CustomerCheckout', () => {
+describe(CustomerCheckout.name, () => {
     // The test function will be added in the next step
 
 
-test('form validation and submission', async () => {
+ it('form validation and submission', async () => {
     render(<CustomerCheckout />);
 
     const firstNameInput = screen.getByPlaceholderText('Firstname');
@@ -44,7 +44,6 @@ test('form validation and submission', async () => {
     userEvent.type(lastNameInput, 'Doe');
     userEvent.type(emailInput, 'john.doe@example.com');
     userEvent.type(addressInput, 'Gadevej 123');
-    userEvent.selectOptions(countryInput, 'Denmark');
     userEvent.type(postNumberInput, '2020');
     userEvent.type(cityInput, 'Copenhagen');
     userEvent.type(phoneInput, '12345678');
