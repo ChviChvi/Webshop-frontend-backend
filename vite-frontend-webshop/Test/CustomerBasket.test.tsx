@@ -14,15 +14,15 @@ describe(CustomerBasket.name,  () => {
     it("should render table headers", async () => {
 
         await render(<CustomerBasket />);
-        await screen.findByText('Product');
-        expect(screen.getByText('Product'))
-        expect(screen.getByText("Quantity"))
-        expect(screen.getByText("Total"))
-        expect(screen.getAllByText("Remove"))
-        expect(screen.getByText("Quantity for rebate"))
-        expect(screen.getByText("Recommended for you"))
-        expect(screen.getByText("Total price:"))
-        expect(screen.getByText("Go to checkout"))
+        await screen.findByText('ID');
+        expect(screen.getByText('ID'))
+        expect(screen.getByText("name"))
+        expect(screen.getByText("price"))
+        expect(screen.getAllByText("currency"))
+        expect(screen.getByText("rebateQuantity"))
+        expect(screen.getByText("rebatePercent"))
+        expect(screen.getByText("upsellProductId"))
+        expect(screen.getByText("imageUrl"))
 
 
     });
