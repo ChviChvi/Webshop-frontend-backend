@@ -5,7 +5,7 @@ import MobilePayIcon from '../assets/MP_blue.png';
 import VisaIcon from '../assets/visa.svg';
 import MasterIcon from '../assets/mastercard.svg';
 import GiftIcon from '../assets/giftIcon.png';
-import {Link, useLocation} from 'react-router-dom';
+
 import CustomerCheckout from "./CustomerCheckout";
 import {postOrder} from "../APICall";
 import '../stylesheets/reset.css';
@@ -78,9 +78,13 @@ function PaymentType(){
 
     };
 
-    function popup_and_post(){
+    function popup_and_post(e:any){
+        e.preventDefault();
+
         postOrder()
         alert("Your order has been send!");
+        window.location.href = "/";
+
     }
 
     return(
@@ -115,18 +119,18 @@ function PaymentType(){
                 </div>
             </div>
             <div className="buttonContainer">
-                <Link to="/">
+                <a href="/">
                     <button className="Payment_buttons">Return to Basket</button>
-                </Link>
+                </a>
 
             </div>
 
 
             <div className="buttonContainer">
-                <Link to="/">
+
                 <button className="Payment_buttons" onClick={popup_and_post}>Submit Order
                 </button>
-                </Link>
+
             </div>
         </form>
 

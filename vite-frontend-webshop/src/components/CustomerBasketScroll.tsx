@@ -380,7 +380,7 @@ function scrollCustomerBasket() {
                     </tbody>
                 </table>
                 {content}
-                <a className="main-nav__link6" href="/checkoutform">
+                <a className="main-nav__link6"  href="/checkoutform">
                     <div className= "Your_Price">
                         {currentPage === '/' && (
                             <span>Go to checkout &rarr;

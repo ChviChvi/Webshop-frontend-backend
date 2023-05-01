@@ -1,4 +1,3 @@
-
 import { BrowserRouter as Router,Routes, Route }
     from "react-router-dom";
 
@@ -11,22 +10,44 @@ import Homepage from "./Homepage";
 
 
 
-function App() {
-    return (
-        <Router>
-            <Routes>
-                <Route path="/checkoutform" element={<CheckoutForm/>}/>
-                <Route path="/Basket" element={<CustomerBasket/>}/>
-                <Route path="/Payment" element={<Payment/>}/>
-                <Route path="/Registration" element={<RegistrationForm/>}/>
-                <Route path="/Login"
-                       element={<Login onSuccess={() => console.log('you have successfully loged in *smileyface*')}/>}/>
-                <Route path="/" element={<Homepage/>}/>
 
-            </Routes>
-        </Router>
-    );
+
+
+function App() {
+    let page = location.pathname;
+
+    console.log(page);
+
+    window.addEventListener("hashchange",funktiehiermaken)
+
+    function funktiehiermaken(event:any){
+        console.log(event);
+    }
+
+    if (page == '/checkoutform') {
+        return <CheckoutForm />;
+    } else if (page == '/basket') {
+        return <CustomerBasket />;
+    } else if (page == '/Payment') {
+        return <Payment />;
+    } else if (page == '/registration') {
+        return <RegistrationForm />;
+    } else if (page == '/Login') {
+
+
+
+        return (
+            <Login
+                onSuccess={() =>
+                    console.log('you have successfully loged in *smileyface*')
+                }
+            />
+        );
+    } else {
+        return <Homepage />;
+    }
 }
+
 
 export default App;
 
