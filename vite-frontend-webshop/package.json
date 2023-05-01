@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "vitest ./Test/app.test.tsx"
+    "test": "vitest"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
