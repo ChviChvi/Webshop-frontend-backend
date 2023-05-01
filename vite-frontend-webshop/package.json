@@ -6,11 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest ./Test/app.test.tsx"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
     "@types/react-router-dom": "^5.3.3",
     "jsdom": "^21.1.1",
@@ -20,12 +20,14 @@
     "vitest": "^0.29.7"
   },
   "devDependencies": {
+    "@testing-library/react": "^14.0.0",
     "@types/jest": "^29.4.0",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.1.0",
     "@vitest/coverage-c8": "^0.29.3",
     "typescript": "^4.9.3",
-    "vite": "^4.2.1"
+    "vite": "^4.2.1",
+    "vite-test": "^0.4.0"
   }
 }
