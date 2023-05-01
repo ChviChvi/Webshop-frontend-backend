@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from "react";
-import {checkoutlist} from "../Basket";
+
 //import '../../Test/styles.css';
 import MobilePayIcon from '../assets/MP_blue.png';
 import VisaIcon from '../assets/visa.svg';
@@ -12,9 +12,10 @@ import '../stylesheets/reset.css';
 import '../stylesheets/basket.css';
 import '../stylesheets/Validation.css';
 import '../stylesheets/Payment.css';
+import Footer from "./Footer";
 
 
-function FormResult(){
+const FormResult: React.FC = () => {
    const fname = localStorage.getItem('firstName');
    const lname = localStorage.getItem('lastName');
    const address = localStorage.getItem('Address');
@@ -24,26 +25,68 @@ function FormResult(){
    const country = localStorage.getItem('Country');
    const email =  localStorage.getItem('email');
    const phone = localStorage.getItem('phone');
-   const price = localStorage.getItem('sum')
    const company = localStorage.getItem('Company');
    const vat = localStorage.getItem('VAT');
    const comment =localStorage.getItem('Comment');
 
+   const totalsum = localStorage.getItem('sum');
 
     return(
-        <div className="formDiv">
-            <h3 className="big">Your Information</h3>
-            <p>{fname} {lname}</p>
-            <p>{email}</p>
-            <p>{phone}</p>
 
-            <h3 className="big">Billing Address</h3>
-            <p> {address}</p>
-            <p>{postNumber} {city}</p>
-            <p>{country}</p>
+        <div className="background">
+            <div className="background_overlay">
+                <header>
 
-            <h3 className="big">Total Price</h3> <span>{price} DKK</span>
+
+                    <nav className="main-nav">
+
+
+                        <ul className="main-nav__list">
+
+
+                            <li className="main-nav__item1">
+                                <a className="main-nav__link1" href="/">
+                                    <span>Home</span>
+                                </a>
+
+                                <a className="main-nav__link3" href="/Login">
+                                    <span>Login</span>
+                                </a>
+
+
+
+
+                            </li>
+
+
+                        </ul>
+                    </nav>
+                </header>
+                <main>
+                    <div className="main-content" >
+
+                        <div className="formDiv">
+                            <h3 className="big">Your Information</h3>
+                            <p>{fname} {lname}</p>
+                            <p>{email}</p>
+                            <p>{phone}</p>
+
+                            <h3 className="big">Billing Address</h3>
+                            <p> {address}</p>
+                            <p>{postNumber} {city}</p>
+                            <p>{country}</p>
+
+                            <h3 className="big">Total Price</h3> <span>{totalsum} DKK</span>
+                        </div>
+
+                    </div>
+
+
+                </main>
+                {Footer()}
+            </div>
         </div>
+
     )
 
 }
@@ -106,8 +149,6 @@ function PaymentType(){
         <input type="radio" id="giftcard" name="fav_language" value="GiftCard"/>
                 <label htmlFor="giftcard">Gift Card </label>
                 <i className="fa fa-gift "></i></div>
-
-
     </form>
 
     )

@@ -71,6 +71,7 @@ header {
 .main-nav__link1,
 .main-nav__link2,
 .main-nav__link3,
+.main-nav__link5,
 .main-nav__link4{
     display: inline-block; /* set display to inline-block */
     margin: 0 30px; /* add some margin between the two links */
@@ -79,20 +80,57 @@ header {
 
 }
 
+.main-nav__link6{
+    position: relative;
+    text-align: right;
+    justify-content: center; /* center the child elements horizontally */
+    align-items: center; /* center the child elements vertically */
+    animation: glowing 2s infinite;
+    display: inline-block; /* set display to inline-block */
+    text-decoration: none;
+    font-size: 40px;
 
+
+}
+
+@keyframes glowing {
+
+    50% {
+
+        text-shadow: 0 0 20px #F29553FF, 0 0 20px #F29553FF;
+    }
+    100% {
+
+        text-shadow:  0 0 20px #f29553;
+    }
+}
 
 .main-nav__link1:visited,
 .main-nav__link2:visited,
 .main-nav__link3:visited,
+.main-nav__link5:visited,
+.main-nav__link6:visited,
 .main-nav__link4:visited{
 
     color: #ffffff; /* set the visited link color to white */
 
 }
 
+.main-nav__link1:hover,
+.main-nav__link2:hover,
+.main-nav__link3:hover,
+.main-nav__link5:hover,
+.main-nav__link6:hover,
+.main-nav__link4:hover {
+    color: #F29553FF;
+}
+
 .main-nav__link4_basket:hover,
+.main-nav__link5_shop:hover,
 .main-nav__link2_about:hover {
     cursor: pointer;
+    color: #F29553FF;
+
 }
 
 /*.main-nav__item2 {
@@ -157,12 +195,14 @@ footer {
     max-width: 45rem;
     top: 9rem;
     left: 0;
-    height: calc(100vh - 20rem);
+    height: calc(100vh - 19rem);
     padding: 1rem;
     transition: 0.8s ease;
     margin-top: 4rem;
+    margin-bottom: 4rem;
     overflow-y: hidden;
     background-color: rgba(238, 235, 235, 0.38);
+    z-index: 1;
 }
 
 .pane-hide {
@@ -170,9 +210,11 @@ footer {
 }
 
 .Your_Basket {
-    background-color: rgba(69, 60, 58, 0.9);
+    background-image: linear-gradient(to right, rgba(238, 235, 235, 0.38), #f29553, rgba(238, 235, 235, 0.38));
+
     color: white;
     top: 1rem;
+    height: 2rem;
     display: flex;
     justify-content: center; /* center the child elements horizontally */
     align-items: center;
@@ -184,19 +226,27 @@ footer {
     background-color: rgba(238, 235, 235, 0.38);
     overflow-x: hidden;
     overflow-y: hidden;
-    height: 35rem;
+    height: calc(100vh - 23rem);
+}
+
+.Your_Price{
+    background-color: rgba(238, 235, 235, 0.38);
+    width: 100%;
+    padding-right: 1rem;
+
 }
 
 tbody.scrollable-table {
     overflow-x: hidden;
     padding-top: 0rem;
+    height: calc(100vh - 32rem);
 }
 
 .About {
     position: absolute;
 
     width: 100%;
-    max-width: 60rem;
+    max-width: 40rem;
     top: 9rem;
     left: 0;
     height: calc(100vh - 20rem);
@@ -209,37 +259,73 @@ tbody.scrollable-table {
     z-index: 1;
 }
 
-.About-hide {
+.About-hide,
+.Shop-hide {
     transform: translateX(-100%);
 }
 
-
-.Title {
+.Shop{
     position: absolute;
 
     width: 100%;
-    max-width: 30rem;
-
+    max-width: 20rem;
+    top: 9rem;
     left: 0;
-    top:10rem;
     height: calc(100vh - 20rem);
     padding: 2rem;
     transition: 0.8s ease;
     margin-top: 4rem;
+    overflow-y: auto;
+    background-color: rgba(238, 235, 235, 0.38);
+    cursor: pointer;
+    z-index: 1;
+    overflow-x: hidden;
 
+
+}
+
+
+.Title-Container{
+
+
+}
+
+
+
+.Title {
+    position: absolute;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+
+    left: 0;
+    top:0;
+    height: calc(100vh - 26vh);
+    padding: 0;
+    transition: 0.8s ease;
+    margin-top: calc(100vh - 80vh);
+    z-index: 0;
     color: white;
+
 }
 .Title-text{
     position: absolute;
-    bottom:0;
-    font-size: 120px;
+    left: 65%;
+    top: 25%;
+
+    font-size: 200px;
 }
 .Title-Firstletter{
-    font-size: 200px;
+    font-size: 300px;
+}
+
+.shopword{
+ padding-left: 4.2rem;
 }
 
 .Title-hide {
-    transform: translateX(-300%);
+    transform: translateX(32.5%);
+
 }
 
 .table-pane {
@@ -256,7 +342,12 @@ tbody.scrollable-table {
 /* TOP BAR YOU CAN CLICK AWAY*/
 .clickable-bar {
     position: fixed;
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.2), #f29553, rgba(237, 237, 238, 0.2));
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.2), #f29553, rgba(237, 237, 238, 0.2)),url("../assets/x_close_cross_delete_icon_159748.png");
+
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
     min-height: 2rem;
     width: 100%;
     display: flex;
@@ -264,6 +355,9 @@ tbody.scrollable-table {
     align-items: center;
     color: white;
 
+}
+.clickable-bar:hover{
+    cursor: pointer;
 }
 
 .footer-container {
@@ -273,4 +367,84 @@ tbody.scrollable-table {
 }
 h3{
     font-weight: bold;
+}
+
+.About_box{
+    padding-top: 4rem;
+}
+
+.About_header{
+    font-weight: bold;
+    padding: 1rem;
+    font-size: 40px;
+}
+.About_text1{
+    padding: 1rem;
+    font-size: 25px;
+}
+.About_text2{
+    padding: 1rem;
+    font-size: 25px;
+}
+
+.coolflow {
+    opacity: 0;
+    position: relative;
+    transform: translateX(-100%);
+    animation: slide-in1 0.5s ease forwards;
+}
+
+.coolflow2{
+    opacity: 0;
+    position: relative;
+    transform: translateX(-100%);
+    animation: slide-in2 0.6s ease forwards;
+}
+.coolflow3{
+    opacity: 0;
+    position: relative;
+    transform: translateX(-100%);
+    animation: slide-in3 0.7s ease forwards;
+}
+
+.coolflow4{
+    opacity: 0;
+    position: relative;
+    transform: translateX(-100%);
+    animation: slide-in4 0.8s ease forwards;
+}
+
+
+@keyframes slide-in1 {
+    100% {
+        transform: translateX(10%);
+        opacity: 1;
+    }
+}
+@keyframes slide-in2 {
+    100% {
+        transform: translateX(20%);
+        opacity: 1;
+    }
+}
+@keyframes slide-in3 {
+    100% {
+        transform: translateX(30%);
+        opacity: 1;
+    }
+}
+@keyframes slide-in4 {
+    100% {
+        transform: translateX(40%);
+        opacity: 1;
+    }
+}
+
+.category{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.subcategories{
+    font-size: 20px;
 }

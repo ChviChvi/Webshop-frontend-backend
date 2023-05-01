@@ -45,7 +45,7 @@ button:hover {
 
 .payment{
 
-
+    position: relative;
     margin: auto;
     margin-top: 50px;
     width: 10%;
@@ -71,6 +71,7 @@ button:hover {
 
 }
 .paymentoption{
+    position: relative;
     margin: auto;
     width: 90%;
     height: 85px;
@@ -78,6 +79,7 @@ button:hover {
     border: 2px solid gray;
     margin-bottom:2px;
     overflow: hidden;
+    z-index: 3;
 }
 
 .paymentoption.selected {

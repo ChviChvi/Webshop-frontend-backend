@@ -5,6 +5,7 @@ import '../stylesheets/reset.css';
 import '../stylesheets/basket.css';
 import '../stylesheets/Validation.css';
 
+
 function scrollCustomerBasket() {
 
 
@@ -21,6 +22,7 @@ function scrollCustomerBasket() {
 
 
 
+    const [currentPage, setCurrentPage] = useState(window.location.pathname);
 
     // fetch the data from the API
     const [checkoutlist, setCheckoutlist] = useState<Product[]>([]);
@@ -29,23 +31,25 @@ function scrollCustomerBasket() {
     //https://raw.githubusercontent.com/larsthorup/checkout-data/main/product-v2.json
     // backendserver http://130.225.170.71:3000/product
 
-    useEffect(() => {
-        fetch('https://raw.githubusercontent.com/larsthorup/checkout-data/main/product-v2.json')
-            .then(response => response.json())
-            .then(data => {
-                setCheckoutlist(data);
-                console.log(data);
-                const initialCounts = new Array(data.length).fill(1);
-                localStorage.setItem('counts', JSON.stringify(initialCounts));
-                setCounts(initialCounts);
-            })
-            .catch(error => console.error(error));
-    }, []);
 
-    // update counts in localStorage whenever counts change
-    useEffect(() => {
-        localStorage.setItem('counts', JSON.stringify(counts));
-    }, [counts]);
+
+        useEffect(() => {
+            fetch('https://raw.githubusercontent.com/larsthorup/checkout-data/main/product-v2.json')
+                .then(response => response.json())
+                .then(data => {
+                    setCheckoutlist(data);
+                    console.log(data);
+                    const initialCounts = new Array(data.length).fill(1);
+                    localStorage.setItem('counts', JSON.stringify(initialCounts));
+                    setCounts(initialCounts);
+                })
+                .catch(error => console.error(error));
+        }, []);
+
+        // update counts in localStorage whenever counts change
+        useEffect(() => {
+            localStorage.setItem('counts', JSON.stringify(counts));
+        }, [counts]);
 
 
 
@@ -76,7 +80,8 @@ function scrollCustomerBasket() {
     useEffect(() => {
         localStorage.setItem('counts', JSON.stringify(counts));
         localStorage.setItem("deleteButton", JSON.stringify(deleteButton));
-    }, [counts, deleteButton]);
+        localStorage.setItem('basketitems', JSON.stringify(checkoutlist));
+    }, [counts, deleteButton,checkoutlist]);
 
 
     // Adds count button +/- and function
@@ -135,6 +140,8 @@ function scrollCustomerBasket() {
              //                 <td>
              //                     {item.price} {item.currency}
              const upsellProduct = item.upsellProductId ? checkoutlist.find(product => product.id === item.upsellProductId) : null;
+
+
 
              return (
 
@@ -198,6 +205,8 @@ function scrollCustomerBasket() {
                  </tr>
              );
          });
+
+
      }
 
     // calculates the total price of all the items which are not in the deleteButton array.
@@ -225,17 +234,10 @@ function scrollCustomerBasket() {
     let content;
     // Renders the headers, body, and bottom row.
 
-    if (checkoutlist.length === deleteButton.length) {
-        content = (
-
-                <p data-testid="goodluck">  Your basket is empty, good luck :)</p>
-
-        );
-    } else {
-
+    if (checkoutlist.length !== deleteButton.length) {
         let newSum=0;
         if (totalSum>300){
-             newSum=(totalSum-rebate)*0.9;
+            newSum=(totalSum-rebate)*0.9;
         }
 
         const oldPrice = priceReduction || rebate>0 ? "oldPrice" : "";
@@ -261,8 +263,10 @@ function scrollCustomerBasket() {
             //localStorage.setItem('checkoutCount',JSON.stringify(checkoutCount))
             //localStorage.setItem('productID', JSON.stringify(checkoutIds));
             localStorage.setItem('sum',String(newSum));
-        }
 
+
+        }
+        handleSumSubmit()
         content = (
 
             <div>
@@ -271,17 +275,18 @@ function scrollCustomerBasket() {
                 <table>
                     <tbody className="scrollable-table">
                     {listItems()}
+
                     </tbody>
 
                 </table>
                 <table>
                     <tbody>
-                        <tr >
-                            <td className={`rows-css ${oldPrice}`} colSpan={5}>Total price:</td>
-                            <td className={`rows-css ${oldPrice}`} colSpan={2}>
-                                {totalSum.toFixed(2)} DKK
-                            </td>
-                            <td className="filler-cell"></td>
+                    <tr >
+                        <td className={`rows-css ${oldPrice}`} colSpan={5}>Total price:</td>
+                        <td className={`rows-css ${oldPrice}`} colSpan={2}>
+                            {totalSum.toFixed(2)} DKK
+                        </td>
+                        <td className="filler-cell"></td>
 
                         {priceReduction && (
                             <>
@@ -297,27 +302,35 @@ function scrollCustomerBasket() {
 
                             </>
                         )}
-                        </tr>
-                        {!priceReduction && rebate > 0 && (
+                    </tr>
+                    {!priceReduction && rebate > 0 && (
 
-                            <>
-                                <tr className={`rows-css ${newPrice}`}>
-                                    <td colSpan={5}>New price!</td>
-                                    <td colSpan={2}>
-                                        {(totalSum - rebate).toFixed(2)} {checkoutlist[0].currency}
-                                    </td>
+                        <>
+                            <tr className={`rows-css ${newPrice}`}>
+                                <td colSpan={5}>New price!</td>
+                                <td colSpan={2}>
+                                    {(totalSum - rebate).toFixed(2)} {checkoutlist[0].currency}
+                                </td>
 
-                                    <td colSpan={5}>You saved:</td>
-                                    <td colSpan={2}>{((rebate).toFixed(2))} {checkoutlist[0].currency}</td>
-                                </tr>
+                                <td colSpan={5}>You saved:</td>
+                                <td colSpan={2}>{((rebate).toFixed(2))} {checkoutlist[0].currency}</td>
+                            </tr>
 
-                            </>
-                        )}
-                        </tbody>
-                    </table>
+                        </>
+                    )}
+                    </tbody>
+                </table>
             </div>
 
         );
+    } else {
+
+        content = (
+            <p data-testid="goodluck">  Your basket is empty, good luck :)</p>
+        );
+
+
+
     }
 
 
@@ -367,11 +380,33 @@ function scrollCustomerBasket() {
                     </tbody>
                 </table>
                 {content}
-                <button type="submit" className={'toCheckout'}><Link to="/checkoutform">Go to checkout
-                    <i className="fa-solid fa-arrow-right fa-icon"></i></Link></button>
+                <a className="main-nav__link6" href="/checkoutform">
+                    <div className= "Your_Price">
+                        {currentPage === '/' && (
+                            <span>Go to checkout &rarr;
+                                </span>
+                        )}
+                    </div>
+
+                </a>
+
             </div>
     );
+
+
+
+/**
+ *  <button type="submit" className={'toCheckout'}><Link to="/checkoutform">Go to checkout
+ <i className="fa-solid fa-arrow-right fa-icon"></i></Link></button>
+ * */
+
+
 }
+
+
+
+
+
 
 export default scrollCustomerBasket;
 

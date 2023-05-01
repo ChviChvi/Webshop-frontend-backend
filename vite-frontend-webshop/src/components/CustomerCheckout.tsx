@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import { Link, useNavigate} from 'react-router-dom';
 
 import '../stylesheets/reset.css';
@@ -9,7 +9,7 @@ import '../stylesheets/HomePage.css';
 import Footer from "./Footer";
 
 import CustomerBasket from "./CustomerBasket";
-import {checkoutlist} from "../Basket";
+
 import scrollCustomerBasket from "./CustomerBasketScroll";
 
 import Homepage from "./Homepage";
@@ -157,6 +157,21 @@ const CustomerCheckout: React.FC = () => {
       const comment = document.getElementById('Comment')*/
 
 
+    const [itemamount, setitemamount] = useState<number>(0);
+
+    useEffect(() => {
+
+
+        const countString = localStorage.getItem('counts');
+        const count_array = countString ? JSON.parse(countString) : [];
+        const count_length = count_array.length;
+
+        const anticountString = localStorage.getItem('deleteButton');
+        const anticount_array = anticountString ? JSON.parse(anticountString) : [];
+        const anticount_length = anticount_array.length;
+
+        setitemamount(count_length - anticount_length);
+    }, [localStorage.getItem('counts'), localStorage.getItem('deleteButton')]);
 
 
 //TODO Add current number of shopping-cart-items to bag-icon instead of '5'
@@ -226,9 +241,9 @@ const CustomerCheckout: React.FC = () => {
                                 <input type="tel" id="phone" value={phone} onChange={(e) => setPhone(e.target.value)}  placeholder={"Phone"} pattern="^[0-9]+$" minLength={8} maxLength={8} required/>
                             </div>
                             <div>
-                                <label htmlFor="n1"> Notice! </label>
+                                <label htmlFor="n1" className="labels_form"> Notice! </label>
                             </div>
-                            <label htmlFor="n2"> ↓ If company order please fill out ↓ </label>
+                            <label htmlFor="n2" className="labels_form"> ↓ If company order please fill out ↓ </label>
                             <div>
                                 <input type="text" id="company" value={Company} onChange={(e) => setCompany(e.target.value)}  placeholder={"Company name"} pattern="^[\p{L}\s-]+$"/>
                             </div>
@@ -237,16 +252,16 @@ const CustomerCheckout: React.FC = () => {
                             </div>
                             <textarea name="optionalcomment" rows={4} cols={30} value={Comment} onChange={(e) => setComment(e.target.value)} placeholder="Leave a comment"></textarea>
                             <div>
-                                <label htmlFor="subscribe">Subscribe to our newsletter?</label>
+                                <label htmlFor="subscribe" className="labels_form">Subscribe to our newsletter?</label>
                                 <input type="checkbox" id="subscribe" checked={subscribe} onChange={handleSubscribeChange} />
                             </div>
                             <div>
-                                <label htmlFor="conditions">I Accept The Terms & Conditions</label>
+                                <label htmlFor="conditions" className="labels_form">I Accept The Terms & Conditions</label>
                                 <input type="checkbox" id="conditions" checked={conditions} required onChange={handleConditionChange} />
                             </div>
                             <div>
 
-                                <button type="submit" onClick={fetchhandleFormSubmit}> Go to Payment Methods</button>
+                                <button type="submit" className="payment_submitbutton" onClick={fetchhandleFormSubmit}> Go to Payment Methods</button>
 
                             </div>
                         </form>
@@ -263,7 +278,7 @@ const CustomerCheckout: React.FC = () => {
 
                 <div className={`pane ${showCart ? "" : "pane-hide"}`}>
                     <div className= "Your_Basket">
-                        You have xx items in your basket
+                        You have {itemamount} items in your basket
                     </div>
                     <div className= "Your_Items">
 
@@ -271,8 +286,7 @@ const CustomerCheckout: React.FC = () => {
 
                     </div>
 
-                    <div className= "Your_Price">
-                    </div>
+
                 </div>
 
 

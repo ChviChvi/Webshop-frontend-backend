@@ -1,12 +1,13 @@
 
 .form-container {
     position: absolute;
-    top: 10rem;
-    right: 0rem;
+    justify-content: center; /* center the child elements horizontally */
+    align-items: center;
+    width: 50%;
+    height: calc(100vh - 18vh);
+    left: 50%;
+    overflow-y: auto;
 
-    width: 25%;
-    height: 40%;
-    padding-top: 5rem;
 }
 
 
@@ -14,9 +15,8 @@ main{
     min-height: calc(100vh - 12rem);
 }
 .main-content {
-    position: relative;
-    padding: 2rem;
-    width: 100%;
+
+
 }
 
 .container {
@@ -24,7 +24,7 @@ main{
 
 .header {
     text-align: center;
-    background: #4B6B3C;
+    background: rgb(242, 149, 83);
     color: white;
     font-size: 30px;
     width: 100%;
@@ -34,22 +34,34 @@ main{
 
 
 .form {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 600px;
-    box-shadow: 0 0 10px rgb(0,0,0);
+    position: absolute;
+    text-align: center;
+    padding: 1rem;
 
-    top: 100px; /* set the top position to the height of the header */
-    background-color: #3A4928;
-    border-radius: 20px;
-    color: #E6DEB9;
+    top:0;
+
+    min-width: 60vh;
+    height: calc(100vh - 18vh);
+    background-color: rgba(238, 235, 235, 0.38);
+    margin-top: 1rem;
+    border-radius: 0px;
+    color: #000000;
+    z-index: 2;
+    max-height: 74vh;
+
+
 }
 input{
     /*width: 100%;*/
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: content-box;
-    border-radius: 20px;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+
 
 }
 
@@ -61,6 +73,7 @@ input{
     width: 100%;
     top: 100px; /* set the top position to the height of the header */
     background-color: red;
+
 }
 
 
