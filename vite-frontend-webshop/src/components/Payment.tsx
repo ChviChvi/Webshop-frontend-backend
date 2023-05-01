@@ -68,7 +68,7 @@ function submitOrder(){
 
 function PaymentType(){
 
-    const [selectedOption, setSelectedOption] = useState('MobilePay');
+    const [selectedOption, setSelectedOption] = useState('');
 
     const handleOptionClick = (event: React.MouseEvent<HTMLInputElement>) => {
         setSelectedOption(event.currentTarget.value);
@@ -77,13 +77,13 @@ function PaymentType(){
 
     function popup_and_post(e:any){
         e.preventDefault();
-
+        if (selectedOption!=''){
         /** Backend */
         postOrder()
         /** Backend */
 
         alert("Your order has been send!");
-        window.location.href = "/";
+        window.location.href = "/";}
 
     }
 
