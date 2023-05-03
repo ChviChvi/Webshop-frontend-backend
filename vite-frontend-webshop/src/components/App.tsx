@@ -61,7 +61,7 @@ export default App;
             <Routes>
                 <Route path="/checkoutform" element={<CheckoutForm/>}/>
                 <Route path="/Payment" element={<Payment/>}/>
-                <Route path="/Registration" element={<RegistrationForm/>}/>
+                <Route path="/registration" element={<RegistrationForm/>}/>
                 <Route path="/Login"
                        element={<Login onSuccess={() => console.log('you have successfully loged in *smileyface*')}/>}/>
                 <Route path="/" element={<Homepage/>}/>

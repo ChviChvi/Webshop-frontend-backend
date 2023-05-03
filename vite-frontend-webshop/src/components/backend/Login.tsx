@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import {Link, useNavigate} from 'react-router-dom';
 /** this is backend course! */
 
 interface LoginFormProps {
@@ -69,7 +69,7 @@ const LoginForm = ({ onSuccess }: LoginFormProps) => {
             {error && <div>{error}</div>}
         </form>
 
-        <a href="/registration"> No account? registrate her!</a>
+        <Link to="/registration"> No account? registrate her!</Link>
         </div>
     );
 };
