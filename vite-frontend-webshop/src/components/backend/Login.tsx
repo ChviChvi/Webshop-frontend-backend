@@ -22,7 +22,7 @@ const LoginForm = ({ onSuccess }: LoginFormProps) => {
                 return;
             }
 
-            const response = await fetch("/api/login", {
+            const response = await fetch("/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -33,7 +33,7 @@ const LoginForm = ({ onSuccess }: LoginFormProps) => {
             const data = await response.json();
             if (response.ok) {
                 // Save the session token or cookie returned by the server
-                document.cookie = `token=${data.token}`;
+                //document.cookie = `token=${data.token}`;
                 onSuccess();
             } else {
                 setError(data.message || "Login failed");

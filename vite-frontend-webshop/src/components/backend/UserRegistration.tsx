@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 
 interface RegistrationFormData {
     name: string;
@@ -25,7 +25,7 @@ const RegistrationForm: React.FC = () => {
         e.preventDefault();
         try {
             setLoading(true);
-            const response = await fetch('/api/register', {
+            const response = await fetch('http://localhost:3000/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
