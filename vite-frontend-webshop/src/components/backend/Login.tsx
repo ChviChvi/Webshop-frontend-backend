@@ -25,11 +25,12 @@ const LoginForm = ({ onSuccess }: LoginFormProps) => {
             const response = await fetch("http://130.225.170.71:3000/login", {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
+                    "Content-Type": "application/json",
                 },
-                body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`,
+                body: JSON.stringify({ username, password }),
                 credentials: 'include', // include the credentials (cookies) in the request
             });
+
 
 
             if (response.ok) {
