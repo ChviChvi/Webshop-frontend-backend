@@ -14,7 +14,7 @@ const LoginForm = ({ onSuccess }: LoginFormProps) => {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
-            const usernameExistsResponse = await fetch(`/checkUsername/${username}`);
+            const usernameExistsResponse = await fetch(`http://130.225.170.71:3000/checkUsername/${username}`);
             const { exists } = await usernameExistsResponse.json();
 
             if (!exists) {
