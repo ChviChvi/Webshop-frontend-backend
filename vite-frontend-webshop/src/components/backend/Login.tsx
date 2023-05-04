@@ -22,26 +22,26 @@ const LoginForm = ({ onSuccess }: LoginFormProps) => {
                 return;
             }
 
-            const response = await fetch("/login", {
+            const response = await fetch("http://130.225.170.71:3000/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({ username, password }),
+                credentials: 'include', // include the credentials (cookies) in the request
             });
 
-            const data = await response.json();
             if (response.ok) {
-                // Save the session token or cookie returned by the server
-                //document.cookie = `token=${data.token}`;
                 onSuccess();
             } else {
+                const data = await response.json();
                 setError(data.message || "Login failed");
             }
         } catch (error) {
             setError("Login failed");
         }
     };
+
 
 
 
