@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 interface RegistrationFormData {
     username: string;
     password: string;
 }
+
+const navigate = useNavigate();
 
 const RegistrationForm: React.FC = () => {
     const [formData, setFormData] = useState<RegistrationFormData>({
@@ -30,7 +32,7 @@ const RegistrationForm: React.FC = () => {
             });
             if (response.ok) {
                 // Registration successful, redirect to login page
-                window.location.href = "/login" // navigate('/login');
+                navigate("/login"); // navigate('/login');
             } else {
                 const error = await response.json();
                 setError(error.message);
