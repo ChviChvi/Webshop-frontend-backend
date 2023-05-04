@@ -6,7 +6,7 @@ interface RegistrationFormData {
     password: string;
 }
 
-const navigate = useNavigate();
+
 
 const RegistrationForm: React.FC = () => {
     const [formData, setFormData] = useState<RegistrationFormData>({
@@ -21,6 +21,8 @@ const RegistrationForm: React.FC = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
+    const nav_Login = useNavigate();
+    
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
@@ -32,7 +34,7 @@ const RegistrationForm: React.FC = () => {
             });
             if (response.ok) {
                 // Registration successful, redirect to login page
-                navigate("/login"); // navigate('/login');
+                nav_Login("/login"); // navigate('/login');
             } else {
                 const error = await response.json();
                 setError(error.message);
