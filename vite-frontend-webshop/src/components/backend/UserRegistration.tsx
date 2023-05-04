@@ -2,15 +2,13 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 interface RegistrationFormData {
-    name: string;
-    email: string;
+    username: string;
     password: string;
 }
 
 const RegistrationForm: React.FC = () => {
     const [formData, setFormData] = useState<RegistrationFormData>({
-        name: '',
-        email: '',
+        username: '',
         password: ''
     });
     const [error, setError] = useState('');
@@ -32,7 +30,7 @@ const RegistrationForm: React.FC = () => {
             });
             if (response.ok) {
                 // Registration successful, redirect to login page
-               window.location.href = "/login" // navigate('/login');
+                window.location.href = "/login" // navigate('/login');
             } else {
                 const error = await response.json();
                 setError(error.message);
@@ -46,10 +44,8 @@ const RegistrationForm: React.FC = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Name:</label>
-            <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} />
-            <label htmlFor="email">Email:</label>
-            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} />
+            <label htmlFor="username">Username:</label>
+            <input type="text" id="username" name="username" value={formData.username} onChange={handleChange} />
             <label htmlFor="password">Password:</label>
             <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} />
             {error && <p>{error}</p>}
