@@ -70,9 +70,15 @@ const LoginForm = ({ onSuccess }: LoginFormProps) => {
             <button type="submit">Login</button>
             {error && <div>{error}</div>}
         </form>
+            <div>
+                <Link to="/registration"> No account? registrate her!</Link>
+            </div>
+            <div>
+                <Link to="/forgot-password">Forgot Password?</Link>
+            </div>
 
-        <Link to="/registration"> No account? registrate her!</Link>
         </div>
+
     );
 };
 

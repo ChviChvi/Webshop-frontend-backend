@@ -52,6 +52,7 @@ export default App;
  import RegistrationForm from "./backend/UserRegistration";
  import Login from "./backend/Login";
  import Homepage from "./Homepage";
+ import ForgotPassword from "./backend/ForgotPassword";
 
 
 
@@ -65,6 +66,7 @@ export default App;
                 <Route path="/Login"
                        element={<Login onSuccess={() => console.log('you have successfully loged in *smileyface*')}/>}/>
                 <Route path="/" element={<Homepage/>}/>
+                <Route path="/forgot-password" element={<ForgotPassword />} />
             </Routes>
         </Router>
     );
