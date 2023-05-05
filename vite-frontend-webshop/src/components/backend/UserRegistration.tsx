@@ -55,12 +55,7 @@ const RegistrationForm: React.FC = () => {
             <label htmlFor="password">Password:</label>
             <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} />
             <label htmlFor="email">Email:</label>
-            <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
+            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange}
             />
 
             {error && <p>{error}</p>}
