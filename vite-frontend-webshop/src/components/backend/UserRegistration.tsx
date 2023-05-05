@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 interface RegistrationFormData {
     username: string;
     password: string;
+    email: string;
 }
 
 
@@ -11,7 +12,8 @@ interface RegistrationFormData {
 const RegistrationForm: React.FC = () => {
     const [formData, setFormData] = useState<RegistrationFormData>({
         username: '',
-        password: ''
+        password: '',
+        email: '',
     });
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
@@ -52,7 +54,18 @@ const RegistrationForm: React.FC = () => {
             <input type="text" id="username" name="username" value={formData.username} onChange={handleChange} />
             <label htmlFor="password">Password:</label>
             <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} />
+            <label htmlFor="email">Email:</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+            />
+
             {error && <p>{error}</p>}
+
+
             <button type="submit" disabled={loading}>
                 {loading ? 'Loading...' : 'Register'}
             </button>
