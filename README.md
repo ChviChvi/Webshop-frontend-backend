@@ -5,11 +5,11 @@ This project the combination of two courses: *62597 Backend development, operati
 ## Backend:
 Here a list of the implementations and considerations to the backend of the webshop </br >
 **- Webserver** </br >
-&nbsp  *- Apache* </br >
-&nbsp  *- Virtual hosts* </br >
-&nbsp  *- NginX* </br >
-&nbsp  *- Specification & Performance* </br >
-&nbsp  *- Multi / Single* </br >
+&nbsp;  *- Apache* </br >
+&nbsp;  *- Virtual hosts* </br >
+&nbsp;  *- NginX* </br >
+&nbsp;  *- Specification & Performance* </br >
+&nbsp;  *- Multi / Single* </br >
 **- Database** </br >
 &nbsp  *- MySQL* </br >
 &nbsp&nbsp    *- sequelize* </br >
