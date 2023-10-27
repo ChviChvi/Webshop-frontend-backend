@@ -5,68 +5,68 @@ This project the combination of two courses: *62597 Backend development, operati
 ## Backend:
 Here a list of the implementations and considerations to the backend of the webshop </br >
 **- Webserver** </br >
-  *- Apache* </br >
-  *- Virtual hosts* </br >
-  *- NginX* </br >
-  *- Specification & Performance* </br >
-  *- Multi / Single* </br >
+&nbsp  *- Apache* </br >
+&nbsp  *- Virtual hosts* </br >
+&nbsp  *- NginX* </br >
+&nbsp  *- Specification & Performance* </br >
+&nbsp  *- Multi / Single* </br >
 **- Database** </br >
-  *- MySQL* </br >
-    *- sequelize* </br >
-  *- Relationel* </br >
-  *- Struktureret data* </br >
-  *- ACID* </br >
-  *- NoSQL* </br >
+&nbsp  *- MySQL* </br >
+&nbsp&nbsp    *- sequelize* </br >
+&nbsp  *- Relationel* </br >
+&nbsp  *- Struktureret data* </br >
+&nbsp  *- ACID* </br >
+&nbsp  *- NoSQL* </br >
 **- API** </br >
-  *- Node * </br >
-  *- Express * </br >
-  *- app* </br >
-  *- Frontend* </br >
-  *- Rest* </br >
-  *- RMM* </br >
-  *- Frontend Routing* </br >
+&nbsp  *- Node * </br >
+&nbsp  *- Express * </br >
+&nbsp  *- app* </br >
+&nbsp  *- Frontend* </br >
+&nbsp  *- Rest* </br >
+&nbsp  *- RMM* </br >
+&nbsp  *- Frontend Routing* </br >
 **- Docker** </br >
-  *- Docker-compose* </br >
-  *- Sikkerhed* </br >
-  *- Portainer* </br >
+&nbsp  *- Docker-compose* </br >
+&nbsp  *- Sikkerhed* </br >
+&nbsp  *- Portainer* </br >
   
 ![Screenshot 2023-10-27 215000](https://github.com/ChviChvi/Webshop/assets/91070897/eab4079b-7e12-48bb-95c9-e493c0176a50)
 
 **- SMPT** </br >
-  *- Gmail* </br >
-  *- Password Reset* </br >
+&nbsp  *- Gmail* </br >
+&nbsp  *- Password Reset* </br >
 **- Mailserver** </br >
-  *- RDNS* </br >
-  *- Thunderbird* </br >
-  *- Alternativer* </br >
+&nbsp  *- RDNS* </br >
+&nbsp  *- Thunderbird* </br >
+&nbsp  *- Alternativer* </br >
 **- Sikkerhed** </br >
-  *- https* </br >
-    *- letsencrypt* </br >
-    *- Verifikation* </br >
-    *- ZeroSSL* </br >
-  *- Docker* </br >
-  *- Passport* </br >
-  *- Session* </br >
-  *- bcrypt* </br >
-  *- Cors* </br >
-  *- Wireshark* </br >
-  *- Firewall* </br >
+&nbsp  *- https* </br >
+&nbsp&nbsp    *- letsencrypt* </br >
+&nbsp&nbsp    *- Verifikation* </br >
+&nbsp&nbsp    *- ZeroSSL* </br >
+&nbsp  *- Docker* </br >
+&nbsp  *- Passport* </br >
+&nbsp  *- Session* </br >
+&nbsp  *- bcrypt* </br >
+&nbsp  *- Cors* </br >
+&nbsp  *- Wireshark* </br >
+&nbsp  *- Firewall* </br >
 **- Testing** </br >
-  *- Insomnia* </br >
-  *- Stress testing* </br >
+&nbsp  *- Insomnia* </br >
+&nbsp  *- Stress testing* </br >
 **- Domain** </br >
-  *- Domain.com* </br >
-  *- DNS provider* </br >
-  *- DNS* </br >
-  *- MX* </br >
+&nbsp  *- Domain.com* </br >
+&nbsp  *- DNS provider* </br >
+&nbsp  *- DNS* </br >
+&nbsp  *- MX* </br >
 **- Monitoring & Logging** </br >
-*- ELK stack* </br >
-*- Portainer* </br >
-*- Htop* </br >
-*- Wireshark* </br >
+&nbsp*- ELK stack* </br >
+&nbsp*- Portainer* </br >
+&nbsp*- Htop* </br >
+&nbsp*- Wireshark* </br >
 ![Screenshot 2023-10-27 215034](https://github.com/ChviChvi/Webshop/assets/91070897/abc2b72f-aac3-4174-bc57-76f74fce669c)
 **- Sustainability** </br >
-  *- Considerations towards energy savings* </br >
+&nbsp  *- Considerations towards energy savings* </br >
 
 ## Frontend:
 The frontend of the website was created through using **Vite** and **Typescript**
