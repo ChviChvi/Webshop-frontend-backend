@@ -64,7 +64,7 @@ Here a list of the implementations and considerations to the backend of the webs
 &nbsp;*- Portainer* </br >
 &nbsp;*- Htop* </br >
 &nbsp;*- Wireshark* </br >
-![Screenshot 2023-10-27 215034](https://github.com/ChviChvi/Webshop/assets/91070897/abc2b72f-aac3-4174-bc57-76f74fce669c)
+![Screenshot 2023-10-27 215034](https://github.com/ChviChvi/Webshop/assets/91070897/abc2b72f-aac3-4174-bc57-76f74fce669c) </br >
 **- Sustainability** </br >
 &nbsp;  *- Considerations towards energy savings* </br >
 
