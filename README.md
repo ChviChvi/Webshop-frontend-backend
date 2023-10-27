@@ -18,8 +18,8 @@ Here a list of the implementations and considerations to the backend of the webs
 &nbsp;  *- ACID* </br >
 &nbsp;  *- NoSQL* </br >
 **- API** </br >
-&nbsp;  *- Node * </br >
-&nbsp;  *- Express * </br >
+&nbsp;  *- Node* </br >
+&nbsp;  *- Express* </br >
 &nbsp;  *- app* </br >
 &nbsp;  *- Frontend* </br >
 &nbsp;  *- Rest* </br >
