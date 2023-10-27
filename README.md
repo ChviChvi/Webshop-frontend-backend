@@ -1,8 +1,8 @@
-## Webshop Frontend & Backend
+# Webshop Frontend & Backend
 
 This project the combination of two courses: *62597 Backend development, operations and distrion* & *02363 Front End Web Technology Spring 23*
 
-# Backend:
+## Backend:
 Here a list of the implementations and considerations to the backend of the webshop
 **- Webserver**
   *- Apache*
@@ -67,6 +67,6 @@ Here a list of the implementations and considerations to the backend of the webs
 **- Sustainability**
   *- Considerations towards energy savings*
 
-# Frontend:
+## Frontend:
 The frontend of the website was created through using **Vite** and **Typescript**
 ![ezgif com-video-to-gif (1)](https://github.com/ChviChvi/Webshop/assets/91070897/a0bc07b6-28ff-4496-afc1-4664590f3a06)
