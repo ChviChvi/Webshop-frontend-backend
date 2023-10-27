@@ -3,6 +3,9 @@
 This project the combination of two courses: *62597 Backend development, operations and distrion* & *02363 Front End Web Technology Spring 23*
 
 ## Backend:
+
+For the backend there was given an empty server, which was to be implemented to create the backend for this webshop. We could do and choose whatever we wanted, as long as there was reflected upon and given reason for why we didn't choose other courses.
+
 Here a list of the implementations and considerations to the backend of the webshop </br >
 **- Webserver** </br >
 &nbsp;  *- Apache* </br >
