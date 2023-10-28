@@ -6,6 +6,8 @@ This project the combination of two courses: *62597 Backend development, operati
 
 For the backend there was given an empty server, which was to be implemented to create the backend for this webshop. We could do and choose whatever we wanted, as long as there was reflected upon and given reason for why we didn't choose other courses.
 
+The backend of the code can be found here: https://github.com/Vild227/API
+
 Here a list of the implementations and considerations to the backend of the webshop </br >
 **- Webserver** </br >
 &nbsp;  *- Apache* </br >
